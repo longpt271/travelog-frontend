@@ -4,6 +4,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "./Tour.css";
+
 function Tourtrongnuoc(props) {
   const tours = useSelector(state => state.tours.tour.data);
   const tour = [];
@@ -65,7 +66,7 @@ function Tourtrongnuoc(props) {
     return ((money) - ((money) * (km / 100))).toLocaleString()
   }
   return (
-    <div className="mt-5 mb-5 tour " id="tour">
+    <div id="tour" className="pt-5 tour">
       <div className="heading text-center">
         <span>du lịch trong nước</span>
         <div className="hr"></div>
@@ -120,7 +121,7 @@ function Tourtrongnuoc(props) {
       </div>
 
       <div className="xem-them mt-3">
-        <Link to="/list-tour">Xem Thêm &gt;&gt;</Link>
+        <Link to="/list-tour">Xem thêm &gt;&gt;</Link>
       </div>
     </div>
 

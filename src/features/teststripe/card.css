@@ -49,3 +49,8 @@
 .thanhtoan{
   font-size: 1rem;
 }
+button.btn-payment.ac {
+  cursor: no-drop;
+  color: blue;
+  background: white;
+}

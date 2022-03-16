@@ -35,13 +35,13 @@ function Chitietgia(props) {
                     {tour.map(ok => (
                         <div key={ok.id}>
                             <p>
-                                - Giá tiền người lớn: {checkKhuyenmai().toLocaleString()} vnd
+                                - Giá tiền người lớn: {checkKhuyenmai().toLocaleString()} vnđ
                             </p>
                             <p>
-                                - Giá tiền trẻ em: {(ok.giatreem).toLocaleString()} vnd
+                                - Giá tiền trẻ em: {(ok.giatreem).toLocaleString()} vnđ
                             </p>
                             <p>
-                                - Giá tiền em bé: {(ok.giaembe).toLocaleString()} vnd
+                                - Giá tiền em bé: {(ok.giaembe).toLocaleString()} vnđ
                             </p>
                         </div>
                     ))}

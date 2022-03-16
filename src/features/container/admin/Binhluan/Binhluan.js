@@ -14,7 +14,7 @@ function Binhluan() {
             dataIndex: 'user',
         },
         {
-            title: 'Tuor',
+            title: 'Tour',
             dataIndex: 'tour',
         },
         {

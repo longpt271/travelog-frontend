@@ -5,12 +5,14 @@ import Home from './features/components/Home';
 import store from './app/store';
 import { Provider } from 'react-redux';
 import * as serviceWorker from './serviceWorker';
-import Stripe from './features/teststripe/Stripe';
+import App from "./App.js"
+// import Stripe from './features/teststripe/Stripe';
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <Home />
+      {/* <App /> */}
     </Provider>
   </React.StrictMode>,
   document.getElementById('root')

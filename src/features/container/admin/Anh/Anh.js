@@ -61,7 +61,7 @@ function Anh() {
                         {
                             key: index + 1,
                             name: <span>{ok.Tour.name}</span>,
-                            link: <Image src={ok.link} width="200px" height="150px" alt="" />,
+                            link: <Image src={ok.link} width="250px" height="150px" alt="" />,
                             banner: <div className="action">{ok.banner === 1 ? <span onClick={() => { handleBanner(ok.banner, ok.id) }}><i className="fas fa-check text-success"></i></span> : <span onClick={() => handleBanner(ok.banner, ok.id)}><i className="fas fa-times text-danger"></i></span>}</div>,
                             status: <div className="action">{ok.status === 1 ? <span onClick={() => { handleStatus(ok.status, ok.id) }}><i className="far fa-thumbs-up text-primary"></i></span> : <span onClick={() => handleStatus(ok.status, ok.id)}><i className="far fa-thumbs-down "></i></span>}</div>,
                         }))}

@@ -23,7 +23,7 @@ function Lienhe() {
             dataIndex: 'diachi',
         },
         {
-            title: 'Tình trạng',
+            title: 'Hiện trang chủ',
             dataIndex: 'status',
         },
         {
@@ -74,7 +74,7 @@ function Lienhe() {
                             name: <span>{ok.name}</span>,
                             email: <span>{ok.email}</span>,
                             diachi: <span>{ok.diachi}</span>,
-                            status: <div className="action">{ok.status === 1 ? <span onClick={() => { handleStatus(ok.status, ok.id) }}><i className="far fa-thumbs-up text-primary"></i></span> : <span onClick={() => handleStatus(ok.status, ok.id)}><i className="far fa-thumbs-down "></i></span>}</div>,
+                            status: <div className="action">{ok.status === 1 ? <span onClick={() => { handleStatus(ok.status, ok.id) }}><i className="far fa-eye"></i></span> : <span onClick={() => handleStatus(ok.status, ok.id)}><i className="	far fa-eye-slash"></i></span>}</div>,
                             action:
                                 <div className="action">
                                     <Popconfirm title="Bạn có muốn sửa？" onConfirm={() => { hangdleEdit(ok.id) }} icon={<QuestionCircleOutlined style={{ color: 'green' }} />}>

@@ -18,7 +18,7 @@ function Camnangdulich() {
             dataIndex: 'icon',
         },
         {
-            title: 'Tình trạng',
+            title: 'Hiện trang chủ',
             dataIndex: 'status',
         },
         {
@@ -70,7 +70,7 @@ function Camnangdulich() {
                             key: index + 1,
                             name: <span>{ok.name}</span>,
                             icon: <span className={`${ok.icon} text-success`} style={{ fontSize: "1.5rem" }}></span>,
-                            status: <div className="action">{ok.status === 1 ? <span onClick={() => { handleStatus(ok.status, ok.id) }}><i className="far fa-thumbs-up text-primary"></i></span> : <span onClick={() => handleStatus(ok.status, ok.id)}><i className="far fa-thumbs-down "></i></span>}</div>,
+                            status: <div className="action">{ok.status === 1 ? <span onClick={() => { handleStatus(ok.status, ok.id) }}><i className="far fa-eye"></i></span> : <span onClick={() => handleStatus(ok.status, ok.id)}><i className="far fa-eye-slash"></i></span>}</div>,
                             action:
                                 <div className="action">
                                     <Popconfirm title="Bạn có muốn sửa？" onConfirm={() => { hangdleEdit(ok.id) }} icon={<QuestionCircleOutlined style={{ color: 'green' }} />}>

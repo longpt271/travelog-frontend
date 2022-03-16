@@ -25,7 +25,7 @@ export default function Duyettour() {
         }, 500);
     }
     const huy = (e) => {
-        dispatch(removehoadoncanhan(e))
+        dispatch(updatehoadoncanhan({ agree: 2, idsua: e }))
         setTimeout(() => {
             actionResult();
         }, 500);
@@ -48,8 +48,23 @@ export default function Duyettour() {
                                     {ok.diadiemdi}
                                 </div>
                                 <div className="duyettour--form">
+                                    <div className="ngaykhoihanh">
+                                        <span> Nơi khởi hành: {ok.noikhoihanh}</span>
+                                    </div>
+                                </div>
+                                <div className="duyettour--form">
                                     <div className="giatour">
-                                        {(ok.giatien).toLocaleString()} vnđ
+                                        <strong>{(ok.giatien).toLocaleString()} vnđ</strong>
+                                    </div>
+                                </div>
+                                <div className="duyettour--form">
+                                    <div className="ngaykhoihanh">
+                                        <span> Ngày khởi hành: {ok.ngaykhoihanh}</span><br />
+                                    </div>
+                                </div>
+                                <div className="duyettour--form">
+                                    <div className="luuytour">
+                                        {ok.luuy}
                                     </div>
                                 </div>
                                 <div className="btn__tour">

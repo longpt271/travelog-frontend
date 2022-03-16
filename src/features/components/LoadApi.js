@@ -1,6 +1,5 @@
 import React from 'react'
 import { quocgiaData } from "../container/admin/Quocgia/quocgiaSlice";
-import { tintucData } from "../container/admin/tintuc/tintucSlice";
 import { loaitourData } from "../container/admin/Loaitour/loaitourSlice";
 import { diadiemData } from "../container/admin/DiaDiem/diadiemSlice";
 import { mangxahoiData } from "../container/admin/mxh/mangxahoiSlice";
@@ -21,7 +20,6 @@ import { useDispatch } from 'react-redux';
 export default function LoadApi() {
     const dispatch = useDispatch();
     const actionquocgia = async () => { await dispatch(quocgiaData()) }
-    const actiontintuc = async () => { await dispatch(tintucData()) }
     const actionloaitour = async () => { await dispatch(loaitourData()) }
     const actionuser = async () => { await dispatch(userData()) }
     const actiondiadiem = async () => { await dispatch(diadiemData()) }
@@ -38,7 +36,6 @@ export default function LoadApi() {
     const actioncamnang = async () => { await dispatch(camnangdulichData()) }
     useEffect(() => {
         actionquocgia();
-        actiontintuc();
         actionloaitour();
         actionuser();
         actiondiadiem();

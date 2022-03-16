@@ -1,3 +1,35 @@
+
+:root{
+  --primary-color:#66cf28;
+  --white-color: white;
+  --text-color:#414244;
+  --hue-color: 190;
+  --scroll-bar-color: hsl(var(--hue-color), 12%, 90%);
+  --text-color-light: hsl(var(--hue-color), 8%, 60%);
+  --scroll-thumb-color: hsl(var(--hue-color), 12%, 75%);
+}
+
+
+::-webkit-scrollbar {
+  width: .60rem;
+  background-color: var(--scroll-bar-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-color-light);
+}
+
+/* Chỉnh màu thanh scroll */
+/* ::-webkit-scrollbar-thumb{
+  border-radius: 6px;
+  background:linear-gradient(gray, var(--primary-color));
+} */
+
+
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif !important;

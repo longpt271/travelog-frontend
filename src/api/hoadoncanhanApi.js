@@ -6,6 +6,12 @@ class HoadoncanhanApi {
         const url = '/hoadoncanhans';
         return axiosClient.get(url, { params });
     };
+    getOne = (params) => {
+        const url = `/hoadoncanhans/${params}`;
+        return axiosClient.get(url).then(data => {
+            return data.data
+        });
+    };
     posthoadoncanhan = (params) => {
         const url = '/hoadoncanhans';
         return axiosClient.post(url, params).then(data => {

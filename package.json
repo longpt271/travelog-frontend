@@ -19,6 +19,7 @@
     "antd": "^4.6.5",
     "axios": "^0.20.0",
     "date-fns": "^2.16.1",
+    "emailjs-com": "^2.6.4",
     "firebase": "^8.1.1",
     "froala-editor": "^3.2.4",
     "google-map-react": "^2.1.6",

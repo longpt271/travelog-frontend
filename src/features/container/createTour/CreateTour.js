@@ -3,10 +3,11 @@ import { Button } from '@material-ui/core'
 import { DatePicker, message, Popconfirm, Select, Space } from 'antd'
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import hoadoncanhanApi from '../../../api/hoadoncanhanApi'
-import Footer from '../trangchu/footer/Footer'
 import "./CreateTour.css"
+import anh from "../../images/createtour.png"
+
 export default function CreateTour() {
     const { Option } = Select;
     const [date, setdate] = useState('')
@@ -58,7 +59,7 @@ export default function CreateTour() {
     }
     return (
         <div id="create-tour">
-            <div className="breadcrumb">
+            {/* <div className="breadcrumb">
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/"><i className="fas fa-home mr-2"></i>Trang chủ</Link></li>
@@ -69,22 +70,32 @@ export default function CreateTour() {
             <div className="title-new">
                 <div className="hr-new "></div>
                 <h3>Tạo chuyến đi</h3>
+            </div> */}
+            <div className="heading text-center pt-5">
+                    <span>Tạo tour của riêng mình</span>
+                    <div className="hr"></div>
+                    <p className="mb-4">
+                        Tự tạo cho mình một lộ trình thú vị để có một kỳ nghỉ đáng nhớ hơn.
+                    </p>
             </div>
-            <div className="container mb-5">
-                <div className="head--text">
+            <div className="container create-img">
+                    <img src={anh} className="w-100" alt="" />
+            </div>
+            <div className="container">
+                {/* <div className="head--text">
                     Tạo tour
-                </div>
+                </div> */}
                 <div className="head--content">
-                    <form action="" onSubmit={onSubmit} method="post">
-                        <Select placeholder="Chọn nơi khởi hành" className="mr-2" style={{ width: 200 }} onChange={handleNoixuatphat}>
-                            {!diadiem ? '' : diadiem.map((data) => (
-                                <Option key={data.name}>{data.name}</Option>
-                            ))}
+                    <form action="" onSubmit={onSubmit} method="post" >
+                        <Select placeholder="Chọn nơi khởi hành" className="mr-2" style={{ width: 200, marginLeft: 19, borderRadius: 8 }} onChange={handleNoixuatphat} >
+                            <Option key="Hà Nội">Hà Nội</Option>
+                            <Option key="Ninh Bình">Ninh Bình</Option>
+                            <Option key="Hồ Chí Minh">Hồ Chí Minh</Option>
                         </Select>
                         <Select
                             mode="multiple"
                             placeholder="Chọn địa điểm đi"
-                            style={{ width: 400 }}
+                            style={{ width: 500 }}
                             className="mr-2"
                             onChange={handleTuyendi}
                         >
@@ -93,7 +104,7 @@ export default function CreateTour() {
                             ))}
                         </Select>
                         <Space direction="vertical" className="mr-2" >
-                            <DatePicker className="mr-3" style={{ width: 150 }} id="date" format="DD/MM/YYYY" onChange={handleNgaykhoihanh} />
+                            <DatePicker placeholder="Ngày đi" className="mr-3" style={{ width: 150 }} id="date" format="DD/MM/YYYY" onChange={handleNgaykhoihanh} />
                         </Space>
                         <Popconfirm title="Bạn có chắc chắn？" onConfirm={() => { onSubmit() }} icon={<QuestionCircleOutlined style={{ color: 'green' }} />}>
                             <Button type="submit" color="primary" variant="contained">Tạo chuyến đi</Button>
@@ -101,7 +112,6 @@ export default function CreateTour() {
                     </form>
                 </div>
             </div>
-            <Footer />
         </div >
     )
 }

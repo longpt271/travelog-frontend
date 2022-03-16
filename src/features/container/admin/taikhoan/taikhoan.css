@@ -4,3 +4,7 @@
     height: 200px;
     border: 2px solid rgb(184, 125, 125);
 }
+
+.gridTk {
+    justify-content: normal !important;
+}

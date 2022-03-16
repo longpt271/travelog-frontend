@@ -1,0 +1,252 @@
+
+.dinosaur{
+    width: 100%;
+    overflow: hidden;
+}
+
+
+/* phần slider */
+.slider__background{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 750px;
+    background: linear-gradient(-80deg, rgba(0, 0, 0, 0.5), rgba(0,0,0,0.8)),
+    url(../img/background-slider.svg);      
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.slider__background__Leaf1 {
+    position: absolute;
+    width: 900px;
+    height: 960px;
+    top: -20%;
+    right: -10%;
+    background:url(https://www.designzillas.com/themes/custom/bedrock/images/hero/palm.svg),url(https://www.designzillas.com/themes/custom/bedrock/images/hero/palm.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(-12deg);
+    filter: brightness(0.8);
+    transform-origin: top;
+    transition: 0.3s;
+    animation: moveLeaf1 infinite 10s linear;
+    -webkit-animation: moveLeaf1 infinite 10s linear;
+}
+@keyframes moveLeaf1{
+    0%{
+    }
+    50%{
+        transform: rotate(-15deg);
+    }
+}
+.slider__background__Leaf2{
+    position: absolute;
+    width: 750px;
+    height: 1200px;
+    top: 95%;
+    right: 80%;
+    background: url(https://www.designzillas.com/themes/custom/bedrock/images/hero/palm.svg),url(https://www.designzillas.com/themes/custom/bedrock/images/hero/palm.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transform: rotate(-80deg);
+    filter: brightness(0.8);
+    transition: 0.3s;
+    transform-origin: center top;
+    animation: moveLeaf2 infinite 8s linear;
+    -webkit-animation: moveLeaf2 infinite 8s linear;
+}
+
+@keyframes moveLeaf2{
+    0%{
+        transform: rotate(-80deg);
+    }
+    50%{
+        transform: rotate(-82deg); 
+    }
+}
+.slider__backgound__dinosour-child{     
+    width: 260px;
+    height: 260px;
+    zoom: 0.7;
+    background: url(../img/little-zilla-head.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 76%;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+    animation: gaow infinite 10s ease-out;
+    -webkit-animation: gaow infinite 10s ease-out;
+}
+@keyframes gaow{
+    0%{
+        left: 0%;
+    }100%{
+        left: 120%;
+    }
+}
+.sider__background__dinosour-child__text{
+    position: absolute;
+    bottom: 105%;
+    font-size: 2rem;
+    width: 100%;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    text-transform: capitalize;
+}
+.slider__backgound__dinosour-child__eye-left{
+    position: absolute;
+    top: 67px;
+    left: 158px;
+    width: 8px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: 0.3s;
+    animation: moveEyes infinite 1s ease-out;
+    -webkit-animation: moveEyes infinite 1s ease-out;
+}
+.slider__backgound__dinosour-child__eye-right{
+    position: absolute;
+    top: 67px;
+    right: 60px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: 0.1s;
+    animation: moveEyes infinite 1s ease-out;
+    -webkit-animation: moveEyes infinite 1s ease-out;
+}
+@keyframes moveEyes{
+    0%{
+        
+    }50%{
+        transform: translateX(3px);
+        transform: scale(3);
+    }100%{
+    }
+}
+.slider__backgound__dinosour-child1{     
+    width: 260px;
+    height: 260px;
+    zoom: 0.6;
+    background: url(../img/little-zilla-head.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    position: absolute;
+    top: 80%;
+    left: 40%;
+    transition: 0.3s;
+    animation: gaow1 infinite 10s ease-out;
+    -webkit-animation: gaow1 infinite 10s ease-out;
+}
+@keyframes gaow1{
+    0%{
+        left: -50%;
+    }100%{
+        left: 100%;
+    }
+}
+.slider__backgound__dinosour-child2{
+    width: 260px;
+    height: 260px;
+    background: url(../img/little-zilla-head.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    zoom: 0.9;
+    position: absolute;
+    bottom: 74%;
+    left: 12%;
+    transform: translateX(-50%);
+    transition: 0.3s;
+    transform: rotate(160deg);
+    animation: gaow2 infinite 10s ease-out;
+    -webkit-animation: gaow2 infinite 10s ease-out;
+}
+@keyframes gaow2{
+    0%{
+        bottom: 100%;
+    }50%{
+        bottom: 73%;
+    }80%{
+        bottom: 73%;
+    }100%{
+        bottom: 100%;
+    }
+}
+
+.slider__background__bottom{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url(../img/grunge-stripe.png);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.slider__background__content{
+    position: absolute;
+    top: 26%;
+    left: 0;
+    right: 0;
+    user-select: none;
+    -webkit-user-select: none;
+    transition: 0.3s;
+    animation: moveContent infinite  0.3s linear;
+    -webkit-animation: moveContent infinite  5s linear;
+}
+@keyframes moveContent{
+    0%{
+        
+    }50%{
+        margin-left: -6px;
+    }
+}
+.slider__background__content__description{
+    position: relative;
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    padding: 12px 0;
+    margin-left: 200px;
+    text-transform: capitalize;
+    margin-bottom:0px;
+}
+.slider__background__content__description::before{
+    content: "";
+    width: 100px;
+    height: 10px;
+    background: var(--primary-color);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: calc(100% + 20px);
+}
+.slider__background__content__title-main{
+    font-size: 4rem;
+    line-height: 5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+    font-family: 'Permanent Marker', cursive;
+    padding: 12px 200px;
+    margin: 0;
+    text-shadow: 0 1px 10px rgba(0, 0, 0, 0.5);
+    /* font-size: 62.5%; */
+    
+}
+.slider__background__content__title-main span{
+    color: var(--primary-color);
+    font-family: 'Montserrat', sans-serif;
+    text-transform:lowercase;
+}

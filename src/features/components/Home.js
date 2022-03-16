@@ -13,23 +13,19 @@ import Trangchu from './Trangchu'
 import Admin from './Admin'
 import Dangky from '../container/dangky/Dangky'
 import Tour from "../container/detailtour/tour/Tour";
-import Tintucdetail from "../container/tintuc/tintucdetail/Tintucdetail";
 import Listtour from "../container/Listtour/Listtour";
 import Dattour from "../container/detailtour/dattour/Dattour";
-import Listtintuc from "../container/tintuc/listtintuc/Listtintuc";
 import Stripe from "../teststripe/Stripe";
 import Error from "./Error";
 import { useDispatch } from "react-redux";
 // import { getMe } from "../../app/userSlice";
 // import { unwrapResult } from "@reduxjs/toolkit";
 import { quocgiaData } from "../container/admin/Quocgia/quocgiaSlice";
-import { tintucData } from "../container/admin/tintuc/tintucSlice";
 import { loaitourData } from "../container/admin/Loaitour/loaitourSlice";
 import { diadiemData } from "../container/admin/DiaDiem/diadiemSlice";
 import { mangxahoiData } from "../container/admin/mxh/mangxahoiSlice";
 import { binhluanData } from "../container/admin/Binhluan/binhluanSlice";
 // import { userData } from "../container/admin/taikhoan/taikhoanSlice";
-import { tagData } from "../container/admin/Tag/tagSlice";
 import { anhData } from "../container/admin/Anh/anhSlice";
 import { dichvuData } from "../container/admin/Dichvu/dichvuSlice";
 import { hoadonData } from "../container/admin/Hoadon/hoadonSlice";
@@ -46,25 +42,12 @@ import Thongtin from "../container/trangchu/thongtin/Thongtin";
 
 export default function NestingExample() {
   const dispatch = useDispatch();
-  // useEffect(() => {
-  //   const fetchTintucList = async () => {
-  //     try {
-  //       const res = await tintucApi.getAll();
-  //       console.log(res);
-  //     } catch (error) {
-  //       console.log("loix" + error);
-  //     }
-  //   }
-  //   fetchTintucList();
-  // }, []);
   const actionquocgia = async () => { await dispatch(quocgiaData()) }
-  const actiontintuc = async () => { await dispatch(tintucData()) }
   const actionloaitour = async () => { await dispatch(loaitourData()) }
 
   const actiondiadiem = async () => { await dispatch(diadiemData()) }
   const actionmangxahoi = async () => { await dispatch(mangxahoiData()) }
   const actionbinhluan = async () => { await dispatch(binhluanData()) }
-  const actiontag = async () => { await dispatch(tagData()) }
   const actionanh = async () => { await dispatch(anhData()) }
   const actiondichvu = async () => { await dispatch(dichvuData()) }
   const actionhoadon = async () => { await dispatch(hoadonData()) }
@@ -89,13 +72,11 @@ export default function NestingExample() {
     //   const currentUser = unwrapResult(actionResult);
 
     actionquocgia();
-    actiontintuc();
     actionloaitour();
 
     actiondiadiem();
     actionmangxahoi();
     actionbinhluan();
-    actiontag();
     actionanh();
     actiondichvu();
     actionhoadon();
@@ -142,14 +123,8 @@ export default function NestingExample() {
           <Route path="/dangky">
             <Dangky />
           </Route>
-          <Route path="/listtintuc">
-            <Listtintuc />
-          </Route>
           <Route path="/tour/:id">
             <Tour />
-          </Route>
-          <Route path="/detail-new/:id">
-            <Tintucdetail />
           </Route>
           <Route path="/list-tour/:id">
             <Listtour />

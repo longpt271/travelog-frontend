@@ -49,6 +49,8 @@
 }
 #ykien
 .dark{
-  background-color: rgba(0, 0, 0, 0.5);
+  /* background-color: rgba(0, 0, 0, 0.5); */
+  /* background-color: #141414; */
+  background-color: #101010;
   color: white;
 }

@@ -26,12 +26,24 @@
     text-align: right;
     width: 100%;
 }
+
+#doanhthu .shadow1{
+    border-radius: 0px 0px 0px 25px;
+    box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.38);
+}
+#doanhthu .shadow2{
+    box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.38);
+}
+#doanhthu .shadow3{
+    border-radius: 0px 0px 25px 0px;
+    box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.38);
+}
+
 #doanhthu .col-md{
     display: flex;
     align-items: center;
     margin-right: 0.5rem;
-    box-shadow: 0px 0px 11px -2px rgba(0,0,0,0.38);
-    border-radius: 5px;
+    /* border-radius: 5px; */
     border-top: 1px solid #555f9d;
 }
 #doanhthu .hr{
@@ -47,3 +59,185 @@
     border-bottom: 1px solid red;
     cursor: default;
 }
+
+/* Banner và thống kê css */
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+  
+  .no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+  }
+  
+  .no-gutters > .col,
+  .no-gutters > [class*="col-"] {
+    padding-right: 0;
+    padding-left: 0;
+  }
+  
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .lightGallery .image-tile, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, .col,
+  .col-auto, .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm,
+  .col-sm-auto, .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12, .col-md,
+  .col-md-auto, .col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg,
+  .col-lg-auto, .col-xl-1, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl,
+  .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  
+  
+  .col-12 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+  
+  .grid-margin {
+    margin-bottom: 2.5rem;
+  }
+  
+  @media (min-width: 576px) {
+    .grid-margin-sm-0 {
+      margin-bottom: 0;
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .grid-margin-md-0 {
+      margin-bottom: 0;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .grid-margin-lg-0 {
+      margin-bottom: 0;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .grid-margin-xl-0 {
+      margin-bottom: 0;
+    }
+  }
+  
+  
+  .stretch-card {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    -webkit-justify-content: stretch;
+    justify-content: stretch;
+  }
+  
+  .stretch-card > .card {
+    width: 100%;
+    min-width: 100%;
+  }
+  
+  
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e3e3e3;
+    border-radius: 20px;
+  }
+  
+  .card.tale-bg {
+    background: #DAE7FF;
+  }
+  
+  .card.transparent {
+    background: transparent;
+  }
+  
+  .card-people {
+    position: relative;
+    padding-top: 20px;
+  }
+  
+  .card-people img {
+    border-radius: 20px;
+    width: 100%;
+  }
+  
+  .card-people .weather-info {
+    position: absolute;
+    top: 30px;
+    right: 24px;
+  }
+  
+  .card-people .weather-info sup {
+    font-size: 18px;
+  }
+  
+  .card-people .weather-info .location {
+    font-size: 20px;
+    margin-bottom: 0;
+  }
+  
+  
+  .card.card-1 {
+    background: #003579;
+    color: #ffffff;
+  }
+  
+  .card.card-1:hover {
+    background: #2d2d91;
+  }
+  
+  .card.card-2 {
+    background: linear-gradient(#003579, #4a913f);
+    color: #ffffff;
+  }
+  
+  .card.card-2:hover {
+    background: linear-gradient(#2d2d91, #125a28);
+  }
+  
+  .card.card-3 {
+    background: #4a913f;
+    color: #ffffff;
+  }
+  
+  .card.card-3:hover {
+    background: #125a28;
+  }
+  
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.25rem;
+  }
+  .d-flex, .loader-demo-box, .data-icon-card-primary .background-icon, .data-icon-card-secondary .background-icon, .data-icon-card-success .background-icon, .data-icon-card-info .background-icon, .data-icon-card-warning .background-icon, .data-icon-card-danger .background-icon, .data-icon-card-light .background-icon, .data-icon-card-dark .background-icon, .list-wrapper ul li, .email-wrapper .mail-sidebar .menu-bar .profile-list-item a, .email-wrapper .mail-sidebar .menu-bar .profile-list-item a .user, .email-wrapper .mail-list-container .mail-list .details, .email-wrapper .message-body .attachments-sections ul li .thumb, .email-wrapper .message-body .attachments-sections ul li .details .buttons, .lightGallery .image-tile .demo-gallery-poster, .swal2-modal, .navbar .navbar-menu-wrapper .navbar-nav, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.nav-profile, .navbar .navbar-menu-wrapper .navbar-nav .nav-item.dropdown .navbar-dropdown .dropdown-item, .navbar .navbar-menu-wrapper .navbar-nav.navbar-nav-right .nav-item {
+    display: flex !important;
+  }
+  
+    .mb-lg-0,
+    .my-lg-0 {
+      margin-bottom: 0 !important;
+    }
+  
+  .font-weight-normal {
+    font-weight: 400 !important;
+  }
+  
+  
+  .fs-30 {
+    font-size: 30px;
+  }
+  
+  .fa-users {
+    font-size: 50px;
+  }

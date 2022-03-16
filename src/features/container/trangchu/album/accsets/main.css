@@ -1,0 +1,56 @@
+
+
+.dinosaur{
+    width: 100%;
+}
+
+
+
+/* phần  container */
+
+.container__growth{
+    position: relative;
+    min-height: 750px;
+    width: 100%;
+    overflow: hidden;
+    background: url(../img/bg-paint.jpg);
+    background-attachment: fixed;
+}
+.container__growth::after{
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    background: url(../img/grunge-stripe-bottom-black.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
+}
+.container__growth1{
+    width: 100%;
+    height: 750px;
+    background: url(../img/claws-cutout-left.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+}
+.container__growth-content{
+    width: 100%;
+    height: 750px;
+    background-color: var(--white-color);
+    /* padding: 100px 0 130px 0; */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+.container__growth2{
+    width: 100%;
+    height: 750px;
+    background: url(../img/claws-cutout-right.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}

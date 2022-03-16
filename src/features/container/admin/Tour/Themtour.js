@@ -324,14 +324,14 @@ function Themtour(props) {
                         <input type="text" name="name" value={name} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Vị trí</label><br />
+                        <label htmlFor="">Vị trí hiển thị gói tour</label><br />
                         <Select className="w-50" value={vitri} onChange={hangdlevitri}>
                             <Option value={1}>Trong nước</Option>
                             <Option value={2}>Nước ngoài</Option>
                         </Select><br />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Thêm poster</label>
+                        <label htmlFor="">Thêm poster (ảnh đại diện)</label>
                         <div >
                             <input accept="image/*" id="icon-button-file" type="file" onChange={hangdelimage} />
                             <label htmlFor="icon-button-file">
@@ -384,17 +384,6 @@ function Themtour(props) {
                                 </Checkbox.Group>
                             </Modal>
                         </div>
-                        <label htmlFor="">Dịch vụ</label><br />
-                        {loadloaitour ?
-                            <span>
-                                <Select className="w-25 ml-4" >
-                                </Select><Spin />
-                            </span>
-                            :
-                            <Select mode="tags" value={dichvuId} onChange={ondichvu} className="w-50" placeholder="Tags Mode">
-                                {dichvudata}
-                            </Select>
-                        }
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Loại tour</label><br />
@@ -414,24 +403,20 @@ function Themtour(props) {
                             {quocgiaData.map(quocgia => (
                                 <Option key={quocgia.id}>{quocgia.name}</Option>
                             ))}
-                        </Select><br />
+                        </Select>
+                        <br />
                         <label htmlFor="">Địa điểm</label><br />
-
                         <Select mode="tags" value={state.diadiemId} onChange={onSeconddiadiemChange} className="w-50" placeholder="Tags Mode">
                             {selectdiadiem}
                         </Select>
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Số lượng</label>
-                        <input type="number" min="0" name="songuoi" value={songuoi} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
-                    </div>
-                    <div className="form-group">
-                        <label htmlFor="">Số ngày đi</label>
+                        <label htmlFor="">Số ngày(Tổng thời gian hoàn thành tour)</label>
                         <input type="number" min="0" name="thoigian" value={thoigian} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="">Trailer</label>
-                        <input type="text" name="trailer" value={trailer} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
+                        <label htmlFor="">Số lượng khách</label>
+                        <input type="number" min="0" name="songuoi" value={songuoi} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Giá người lớn</label>
@@ -444,6 +429,23 @@ function Themtour(props) {
                     <div className="form-group">
                         <label htmlFor="">Giá em bé</label>
                         <input type="number" min="0" name="giaembe" value={giaembe} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
+                    </div>
+                    <div className="form-group">   
+                        <label htmlFor="">Dịch vụ</label><br />
+                            {loadloaitour ?
+                                <span>
+                                    <Select className="w-25 ml-4" >
+                                    </Select><Spin />
+                                </span>
+                                :
+                                <Select mode="tags" value={dichvuId} onChange={ondichvu} className="w-50" placeholder="Tags Mode">
+                                    {dichvudata}
+                                </Select>
+                            }
+                    </div>
+                    <div className="form-group">
+                        <label htmlFor="">Trailer</label>
+                        <input type="text" name="trailer" value={trailer} onChange={onChange} className="form-control w-50" placeholder="" aria-describedby="helpId" />
                     </div>
                     <div className="form-group">
                         <label htmlFor="">Bản đồ</label>

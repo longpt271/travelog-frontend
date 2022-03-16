@@ -13,21 +13,21 @@ function Camnangdulich(props) {
     }
   }
   return (
-    <div className=" mt-3" id="camnang">
+    <div className="pt-5 pb-5" id="camnang">
       <div className="heading text-center">
-        <span>cẩm nang du lịch</span>
+        <span>Vì sao chọn Travelog</span>
         <div className="hr"></div>
         <p className="mb-4">
           Tất cả những thông tin hữu ích mà bạn cần để thêm vào vào hành trang
           du lịch của mình
       </p>
       </div>
-      <div className="container">
-        <div className="row justify-content-center ">
+      <div className="container bot-black">
+        <div className="row justify-content-center pb-5">
           {!camnang ? '' :
             camnang.map(ok => (
-              <div className="col-md-3" key={ok.id}>
-                <div className="head_cn">
+              <div className="col-md-3 pb-4" key={ok.id}>
+                <div className="head_cn mb-3">
                   <i className={ok.icon}></i>
                 </div>
                 <div className="content_cn text-center">
@@ -41,6 +41,7 @@ function Camnangdulich(props) {
             ))
           }
         </div>
+        
       </div>
     </div>
 

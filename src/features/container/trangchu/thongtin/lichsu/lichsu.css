@@ -3,11 +3,16 @@
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
+
+h4 {
+    margin-top: 3rem;
+    margin-bottom: 0;
+}
 a .history__box{
     color: black;
 }
 .history__box{
-    margin-top: 0.5rem;
+    /* margin-top: 0.5rem; */
     margin-bottom: 1rem;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     border-radius: 10px;
@@ -31,8 +36,10 @@ a .history__box{
     font-weight: bold;
     color: rgb(65, 65, 247);
 }
+.history--title {
+    padding-top: 10px;
+}
 .history--infor{
-    margin-top: .5rem;
     font-size: 1rem;
     display: flex;
 }
@@ -43,3 +50,12 @@ a .history__box{
     font-weight: 600;
     margin-left: 1rem;
 }
+
+.tourcanhan__box {
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    margin-bottom: 1rem;
+
+    padding: 1.2rem 1rem 1.2rem 1rem;
+    border-radius: 5px;
+}
+

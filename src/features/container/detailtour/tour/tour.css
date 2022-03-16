@@ -20,10 +20,10 @@
 }
 #detail-tour .MuiButtonBase-root{
     right: 10%;
-    bottom: 10%;
+    bottom: 0%;
 }
 #detail-tour .price{
-    bottom: 8%;
+    bottom: 0%;
     font-size: 1.1rem;
 }
 #detail-tour .view{
@@ -58,10 +58,11 @@
     }
 }
 .breadcrumb{
-    padding: 0;
+    padding: 10px;
     /* margin-top: 2rem; */
     background-color: rgba(0, 0, 0, 0);
     margin-left: 1rem;
+    margin-bottom: 0rem;
     letter-spacing: 0;
 }
 .btn-dt a{
@@ -71,6 +72,11 @@
     z-index: 9999999 !important;
 }
 .dieukhoan{
-    height: 200px;
-    overflow: scroll;
+    height: 500px;
+    /* overflow: scroll; */
+    overflow: auto;
+}
+
+.box-tour .row img {
+   border-radius: 8px !important;
 }

@@ -1,5 +1,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Galada&display=swap');
+
+.navbar {
+  box-shadow: 0px 5px 21px -5px #CDD1E1;
+  /* Navbar color variations */
+}
+
 #menu .logo {
   width: 4rem;
 }
@@ -26,28 +32,37 @@
   color: teal;
 }
 #menu .bg-dark {
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: #2f312e !important;
 }
 #menu .drawer-menu .ant-drawer-content-wrapper{
   width: 35% !important;
 }
+
+#menu ul .mr-3 {
+  margin-right: 8px!important;
+}
+
 #menu2 .bg-dark {
   border-bottom: 1px solid silver;
 }
 #menu2 .navbar-dark .navbar-nav .nav-link {
-  color: white !important;
+  color: #0abf54 !important;
   font-size: 1rem;
-  padding-left: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 3rem;
   font-weight: bold;
+}
+#menu2 .navbar-dark .navbar-nav:hover {
+  color: teal;
 }
 #menu2 .navbar{
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
 #menu2 .background {
-   background: url("https://2.bp.blogspot.com/-kHAk-Udrcw8/UMyFoK7crZI/AAAAAAAAJD0/jmyOuixbpxQ/s1600/HINH-NEN-NUI-DEP-CHO-MAY-TINH-WALLPAPER.jpg") center repeat-x  !important;
-   background-size: cover;
+   background-image: url("https://2.bp.blogspot.com/-kHAk-Udrcw8/UMyFoK7crZI/AAAAAAAAJD0/jmyOuixbpxQ/s1600/HINH-NEN-NUI-DEP-CHO-MAY-TINH-WALLPAPER.jpg")   !important;
+   /* background: url("#") center repeat-x  !important; */
+   background-size: 100%;
+   background-repeat: no-repeat;
+   background-position: center;
+
 }
 #menu2 .span.ant-dropdown-trigger.nav-link {
   text-align: right;

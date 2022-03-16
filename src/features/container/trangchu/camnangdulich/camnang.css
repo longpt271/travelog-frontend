@@ -3,6 +3,9 @@
 }
 #camnang{
   cursor: default;
+  position: relative;
+    overflow: hidden;
+    background-attachment: fixed;
 }
 #camnang .col-md-3:hover .head_cn{
   background-color: #0abf54;
@@ -13,8 +16,8 @@
   color:  #0abf54;
 }
 #camnang .head_cn{
-  width: 60px;
-  height: 60px;
+  width: 65px;
+  height: 65px;
   background-color: #e6f7ed;
   border-radius: 100%;
   margin: 0 auto;
@@ -25,4 +28,18 @@
 #camnang .content_cn p {
   font-size: 1.2rem;
   font-weight: 700;
+}
+
+.bot-black::after {
+  content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    background: url(../album/img/grunge-stripe-bottom-black.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top;
 }
