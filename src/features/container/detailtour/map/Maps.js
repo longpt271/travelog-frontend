@@ -13,7 +13,7 @@ function Maps(props) {
         }
     }
     return (
-        <div id="map-container-google-1" className="z-depth-1-half map-container mb-3">
+        <div id="map-container-google-1" className="z-depth-1-half map-container">
             {tour.map(ok => (
                 <div key={ok.id}>
                     {renderHTML(ok.bando)}

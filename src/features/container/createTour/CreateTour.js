@@ -81,7 +81,7 @@ export default function CreateTour() {
             <div className="container create-img">
                     <img src={anh} className="w-100" alt="" />
             </div>
-            <div className="container">
+            <div className="container mb-1">
                 {/* <div className="head--text">
                     Tạo tour
                 </div> */}

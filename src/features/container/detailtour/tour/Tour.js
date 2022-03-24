@@ -596,7 +596,7 @@ function Tour(props) {
                     </div>
                 ))
             )}
-            <Footer />
+            <div className="footer-bottom"><Footer /></div>
             <Modal
                 title="Đặt tour"
                 visible={state.visible}

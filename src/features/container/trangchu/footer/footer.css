@@ -2,6 +2,7 @@
   /* background-color: #141414; */
   background-color: #101010;
   color: white;
+  margin-bottom: 0px
 }
 /* #footer i {
   color: #c13e21;
@@ -64,4 +65,14 @@
 }
 .icon_footer:hover{
   transform: scale(1.2);
+}
+
+.phone-hv{
+  display: inline;
+  cursor:pointer;
+  transition: .5s;
+}
+.phone-hv:hover{
+  transform: scale(1.2);
+
 }

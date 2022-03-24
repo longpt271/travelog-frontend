@@ -66,62 +66,64 @@ function Tourtrongnuoc(props) {
     return ((money) - ((money) * (km / 100))).toLocaleString()
   }
   return (
-    <div id="tour" className="pt-5 tour">
-      <div className="heading text-center">
-        <span>du lịch trong nước</span>
-        <div className="hr"></div>
-        <p className="mb-4">
-          Du lịch trong nước luôn là lựa chọn tuyệt vời. Những thành phố nhộn
-          nhịp, nền văn hóa độc đáo và hấp dẫn.
-      </p>
-      </div>
-      <div className="container">
-        <div className="row justify-content-center">
-          {tour.length === 0 ? <div className="spin"><Spin /></div> :
-            tour.map(ok => (
-              <div className="col-md-4 mb-2" key={ok.id}>
-                {ok.Khuyenmais.length === 0 ? "" :
-                  ok.Khuyenmais[0].status === 0 ? "" :
-                    <Tooltip placement="right" color="#0abf55" title={ok.Khuyenmais[0].name}>
-                      <div className="ribbon-wrapper">
-                        <div className="ribbon-red">Giảm {ok.Khuyenmais[0].khuyenmai}%</div>
-                      </div>
-                    </Tooltip>
-                }
-                <Link to={`/tour/${ok.id}`}>
-                  <div className="img rounded">
-                    <img src={ok.avatar} className="img-fluid" alt="" />
-                  </div>
-                  <div className="content_tour">
-                    <div className="title_tour text-capitalize">{ok.name}</div>
-                    <div className="star float-left">
-                      <Rate value={tinhdiem(ok.id)} disabled />
+    <div id="tour-trong">
+      <div id="tour" className="pt-5 tour">
+        <div className="heading text-center">
+          <span>du lịch trong nước</span>
+          <div className="hr"></div>
+          <p className="mb-4">
+            Du lịch trong nước luôn là lựa chọn tuyệt vời. Những thành phố nhộn
+            nhịp, nền văn hóa độc đáo và hấp dẫn.
+        </p>
+        </div>
+        <div className="container">
+          <div className="row justify-content-center">
+            {tour.length === 0 ? <div className="spin"><Spin /></div> :
+              tour.map(ok => (
+                <div className="col-md-4 mb-2" key={ok.id}>
+                  {ok.Khuyenmais.length === 0 ? "" :
+                    ok.Khuyenmais[0].status === 0 ? "" :
+                      <Tooltip placement="right" color="#0abf55" title={ok.Khuyenmais[0].name}>
+                        <div className="ribbon-wrapper">
+                          <div className="ribbon-red">Giảm {ok.Khuyenmais[0].khuyenmai}%</div>
+                        </div>
+                      </Tooltip>
+                  }
+                  <Link to={`/tour/${ok.id}`}>
+                    <div className="img rounded">
+                      <img src={ok.avatar} className="img-fluid" alt="" />
                     </div>
-                    <div className="money float-left ml-3 text-warning">
-                      {ok.Khuyenmais.length === 0 ?
-                        <div>
-                          {(ok.gianguoilon).toLocaleString()} VNĐ<br />
-                        </div> :
-                        ok.Khuyenmais[0].status === 0 ?
+                    <div className="content_tour">
+                      <div className="title_tour text-capitalize">{ok.name}</div>
+                      <div className="star float-left">
+                        <Rate value={tinhdiem(ok.id)} disabled />
+                      </div>
+                      <div className="money float-left ml-3 text-warning">
+                        {ok.Khuyenmais.length === 0 ?
                           <div>
                             {(ok.gianguoilon).toLocaleString()} VNĐ<br />
-                          </div>
-                          :
-                          <div>
-                            {tinhkhuyenmai(ok.gianguoilon, ok.Khuyenmais[0].khuyenmai)} VNĐ<br />
-                            <del> {(ok.gianguoilon).toLocaleString()} VNĐ</del>
-                          </div>
-                      }
+                          </div> :
+                          ok.Khuyenmais[0].status === 0 ?
+                            <div>
+                              {(ok.gianguoilon).toLocaleString()} VNĐ<br />
+                            </div>
+                            :
+                            <div>
+                              {tinhkhuyenmai(ok.gianguoilon, ok.Khuyenmais[0].khuyenmai)} VNĐ<br />
+                              <del> {(ok.gianguoilon).toLocaleString()} VNĐ</del>
+                            </div>
+                        }
+                      </div>
                     </div>
-                  </div>
-                </Link>
-              </div>
-            ))}
+                  </Link>
+                </div>
+              ))}
+          </div>
         </div>
-      </div>
 
-      <div className="xem-them mt-3">
-        <Link to="/list-tour">Xem thêm &gt;&gt;</Link>
+        <div className="xem-them mt-3">
+          <Link to="/list-tour">Xem thêm &gt;&gt;</Link>
+        </div>
       </div>
     </div>
 

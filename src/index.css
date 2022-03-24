@@ -36,6 +36,14 @@ body {
   background-color: #f4f4f4;
 }
 
+/* css cho footer dưới cùng */
+.footer-bottom {
+  position:absolute;
+  bottom:-19vh;
+  width:100%;
+}
+
+/* css cũ */
 .heading span {
   font-size: 2rem;
   padding-top: 2rem;

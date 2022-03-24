@@ -17,23 +17,23 @@ export default function Thongtin() {
                 <nav aria-label="breadcrumb">
                     <ol className="breadcrumb">
                         <li className="breadcrumb-item"><Link to="/"><i className="fas fa-home mr-2"></i>Trang chủ</Link></li>
-                        <li className="breadcrumb-item">Thông tin</li>
+                        <li className="breadcrumb-item">Lịch sử</li>
                     </ol>
                 </nav>
             </div>
             <div className="container mb-5  ">
                 {!id ? "" :
                     <Tabs defaultActiveKey={id == 0 ? "1" : "2"} tabPosition={tabPosition}>
-                        <TabPane tab="Tour đã đặt" key="1">
-                            <Lichsu />
-                        </TabPane>
-                        <TabPane tab="Duyệt tour" key="2">
+                        <TabPane tab="Duyệt tour" key="1">
                             <Duyettour />
+                        </TabPane>
+                        <TabPane tab="Tour đã đặt" key="2">
+                            <Lichsu />
                         </TabPane>
                     </Tabs>
                 }
             </div>
-            <Footer />
+            <div className="footer-bottom"><Footer /></div>
         </div>
     )
 }

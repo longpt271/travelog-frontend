@@ -164,20 +164,19 @@ export default function Listtour() {
                 </nav>
             </div>
             <div className="container">
-                <div className="row mb-4 bg-white rounded">
+                <div className="row bg-white rounded">
                     <div className="col-md-12 bg ">
                         <div className="grid">
                             <div className="ml-3">
-
-                            {/* <h4 className="">Tìm Kiếm tour</h4> */}
-                        <Search placeholder="Tìm kiếm tour" onSearch={search} enterButton />
+                                    {/* <h4 className="">Tìm Kiếm tour</h4> */}
+                                <Search placeholder="Tìm kiếm tour" onSearch={search} enterButton />
                             </div>
-                            <div className="mr-3">
-                        {/* <h4 className="">Loại tour</h4> */}
-                        <Select className="w-100" defaultValue="trong" style={{ width: 120 }} onChange={handleChange}>
-                            <Option value="trong">Tour trong nước</Option>
-                            <Option value="ngoai">Tour nước ngoài</Option>
-                        </Select>
+                            <div className="mr-4">
+                                {/* <h4 className="">Loại tour</h4> */}
+                                <Select className="w-100" defaultValue="trong" style={{ width: 120 }} onChange={handleChange}>
+                                    <Option value="trong">Tour trong nước</Option>
+                                    <Option value="ngoai">Tour nước ngoài</Option>
+                                </Select>
                             </div>
                         </div>
                         {/* {state.check === "trong" ?
@@ -208,14 +207,14 @@ export default function Listtour() {
                             <span onClick={() => checkstar(1)} style={{ cursor: "pointer" }}><Rate value="1" disabled /><span className="ml-2">từ 1 sao</span><br /></span>
                         </div> */}
                     </div>
-                    <div className="col-md-12">
+                    <div className="col-md-12 mt-4">
                         {/* <div className="title text-center mt-3">
                             {state.check === 'trong' ? <h3>Tour trong nước</h3> : <h3>Tour nước ngoài</h3>}
                             <div className="hr w-25"></div>
                         </div> */}
                         <div className="box-tour">
-                            <div className="container">
-                                <div className="row mt-4 ">
+                            <div className="container box-tour-overflow">
+                                <div className="row">
                                     {state.check === 'trong' ?
                                         state.statetrongnuoc === "" ?
                                             tourtrongnuoc.map((ok, index) => (
@@ -250,7 +249,7 @@ export default function Listtour() {
                                                             </div>
                                                             <div className="money float-left ml-3 text-warning">
                                                                 {(ok.gianguoilon).toLocaleString()} VNĐ<br />
-                                                                <del> 4.000.000 VNĐ</del>
+                                                                {/* <del> 4.000.000 VNĐ</del> */}
                                                             </div>
                                                         </div>
                                                     </Link>
@@ -303,7 +302,7 @@ export default function Listtour() {
                     </div>
                 </div>
             </div>
-            <Footer />
+            <div className="footer-bottom"><Footer /></div>
         </div>
     )
 }

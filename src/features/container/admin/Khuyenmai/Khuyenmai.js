@@ -123,8 +123,8 @@ function Khuyenmai() {
             </div>
             <div className="content">
                 <div className="add">
-                    <Button variant="outlined" color="primary" className="mr-2" onClick={showModal}><i className="fas fa-plus"></i>&nbsp;&nbsp; Thêm khuyến mãi</Button>
                     <Link to={`${match.url}/themkhuyenmai`}><Button variant="outlined" color="secondary"><i className="fas fa-plus"></i>&nbsp;&nbsp; Thêm mới</Button></Link>
+                    <Button variant="outlined" color="primary" onClick={showModal} style={{float: "right"}}><i className="fas fa-plus"></i>&nbsp;&nbsp; Thiết lập khuyến mãi</Button>
                 </div>
                 <div className="add">
                 </div>
@@ -147,12 +147,12 @@ function Khuyenmai() {
                         }))}
                     />
                 }
-                <Modal title="Chèn khuyến mãi" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+                <Modal title="Thiết lập khuyến mãi" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                     <div className="container">
                         <div className="row">
                             <div className="col-md-6 ">
                                 <div>
-                                    <h5 className="text-center">Chọn tour</h5>
+                                    <h5 >Chọn tour</h5>
                                     <Checkbox.Group value={tourId} style={{ width: '100%' }} onChange={onChangeCheckbox}>
                                         <Row>
                                             <Col className="w-100" onChange={checkAll}>
@@ -171,7 +171,7 @@ function Khuyenmai() {
                             </div>
                             <div className="col-md-6 ">
                                 <div>
-                                    <h5 className="text-center">Chọn khuyến mãi</h5>
+                                    <h5>Chọn khuyến mãi</h5>
                                     <Radio.Group onChange={onChangeRadio}>
                                         <Radio style={{ width: '100%' }} value='0'>Huỷ khuyến mãi</Radio>
                                         {!khuyenmais ? "" :

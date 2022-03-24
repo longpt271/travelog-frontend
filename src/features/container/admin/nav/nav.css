@@ -33,3 +33,10 @@
   height: 50px;
   border: 1px solid red;
 }
+
+/* #nav .nav-w-css{
+    flex: 0 0 210px !important;
+    max-width: 210px !important;
+    min-width: 210px !important;
+    width: 210px !important;
+} */

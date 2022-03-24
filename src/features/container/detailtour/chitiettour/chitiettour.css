@@ -1,3 +1,8 @@
 #ct-tour .content-tour{
     font-size: 1rem;
 }
+
+.ct-tour-overflow{
+  height: 39vh;
+  overflow: auto;
+}

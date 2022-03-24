@@ -17,7 +17,7 @@ function Chitiettour(props) {
             <div className="heading-nx">
                 <h3>Chi tiết</h3>
             </div>
-            <div className="container">
+            <div className="container ct-tour-overflow ml-1">
                 <div className="content-tour">
                     {tour.map(ok => (
                         <div key={ok.id}>{renderHTML(ok.chitiettour)}</div>

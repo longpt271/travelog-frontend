@@ -36,6 +36,14 @@
 #list-tour .ant-rate{
   font-size: 1.2rem;
 }
+
+/* css footer khi tìm kiếm */
+#list-tour .box-tour-overflow{
+  height: 80vh;
+    overflow: auto;
+}
+
+
 @media (max-width:1125px){
   #list-tour .ant-rate{
     font-size: .9rem;

@@ -4,10 +4,10 @@
     background-size: cover;
 }
 #dangky .box-login{
-    width: 35%;
+    width: 30%;
     margin: 0 auto;
     position: relative;
-    top: 110px;
+    top: 30vh;
 
     padding: 30px;
     font-weight: 700;

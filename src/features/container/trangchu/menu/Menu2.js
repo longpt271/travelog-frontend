@@ -258,7 +258,7 @@ function ListMenu(props) {
                                 </div>
                             </div>
                             <div className="text-center">
-                                <Button variant="contained" color="secondary" onClick={showDrawer2} className=" mt-2">Thay đổi thông tin</Button>
+                                <Button variant="contained" color="" onClick={showDrawer2} className=" mt-2">Thay đổi thông tin</Button>
                             </div>
                         </div>
                     }

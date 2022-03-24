@@ -60,6 +60,9 @@
     cursor: default;
 }
 
+#doanhthu .chitieuModal {
+  cursor: pointer;
+}
 /* Banner và thống kê css */
 
 .row {
@@ -174,8 +177,8 @@
   
   .card-people .weather-info {
     position: absolute;
-    top: 30px;
-    right: 24px;
+    top: 65px;
+    right: 55px;
   }
   
   .card-people .weather-info sup {
@@ -184,7 +187,7 @@
   
   .card-people .weather-info .location {
     font-size: 20px;
-    margin-bottom: 0;
+    margin-top: 0;
   }
   
   
@@ -234,6 +237,10 @@
   }
   
   
+  .fs-20 {
+    font-size: 20px;
+  }
+
   .fs-30 {
     font-size: 30px;
   }

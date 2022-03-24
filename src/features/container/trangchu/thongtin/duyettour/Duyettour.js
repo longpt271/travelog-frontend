@@ -25,7 +25,7 @@ export default function Duyettour() {
         }, 500);
     }
     const huy = (e) => {
-        dispatch(updatehoadoncanhan({ agree: 2, idsua: e }))
+        dispatch(updatehoadoncanhan({ agree: 3, idsua: e }))
         setTimeout(() => {
             actionResult();
         }, 500);

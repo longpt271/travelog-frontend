@@ -25,10 +25,10 @@ function Dichvu() {
             title: 'Tình trạng',
             dataIndex: 'status',
         },
-        {
-            title: 'hiện trang chủ',
-            dataIndex: 'loadhome',
-        },
+        // {
+        //     title: 'Hiện trang chủ',
+        //     dataIndex: 'loadhome',
+        // },
         {
             title: 'Action',
             dataIndex: 'action'
@@ -87,7 +87,7 @@ function Dichvu() {
                             name: <span>{ok.name}</span>,
                             mota: <span>{ok.mota}</span>,
                             icon: <span className={`${ok.icon} text-success`} style={{ fontSize: "1.5rem" }}></span>,
-                            loadhome: <div className="action">{ok.loadhome === 1 ? <span onClick={() => { handleLoadhome(ok.loadhome, ok.id) }}><i className="fas fa-check text-success "></i></span> : <span onClick={() => handleLoadhome(ok.loadhome, ok.id)}><i className="fas fa-times text-danger"></i></span>}</div>,
+                            // loadhome: <div className="action">{ok.loadhome === 1 ? <span onClick={() => { handleLoadhome(ok.loadhome, ok.id) }}><i className="fas fa-check text-success "></i></span> : <span onClick={() => handleLoadhome(ok.loadhome, ok.id)}><i className="fas fa-times text-danger"></i></span>}</div>,
                             status: <div className="action">{ok.status === 1 ? <span onClick={() => { handleStatus(ok.status, ok.id) }}><i className="far fa-thumbs-up text-primary"></i></span> : <span onClick={() => handleStatus(ok.status, ok.id)}><i className="far fa-thumbs-down "></i></span>}</div>,
                             action:
                                 <div className="action">

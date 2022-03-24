@@ -76,8 +76,8 @@ function Tournuocngoai(props) {
     return (money - money * (km / 100)).toLocaleString();
   };
   return (
-    <div id="tour">
-      <div id="tour-ngoai" className="pt-5 tour">
+    <div id="tour-ngoai">
+      <div id="tour" className="pt-5 tour">
         <div className="heading text-center">
           <span>du lịch nước ngoài</span>
           <div className="hr"></div>

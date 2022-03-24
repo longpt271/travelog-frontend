@@ -5,8 +5,10 @@ import { Popconfirm, Popover, Spin, Table, Tooltip } from 'antd';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { hoadonData, updatehoadon, removehoadon } from './hoadonSlice';
-import { Link, useRouteMatch } from 'react-router-dom'
-import "./hoadon.css"
+import { Link, useRouteMatch } from 'react-router-dom';
+import "./hoadon.css";
+
+import { useHistory } from 'react-router-dom';
 
 function Hoadon() {
     const match = useRouteMatch()
@@ -110,6 +112,14 @@ function Hoadon() {
             actionResult();
         }, 500);
     }
+
+    // chức năng sửa
+    const history = useHistory()
+
+    const hangdleEdit = (id) => {
+        history.replace(`${match.url}/suahoadon/${id}`)
+    }
+
     return (
         <div id="admin">
             <div className="heading">
@@ -138,16 +148,22 @@ function Hoadon() {
                             status: <div className="action">
                                         {ok.agree === 1 ? 
                                             <span className="yes">Đã đặt</span> : 
-                                            <strong className="no">Khách đã hủy</strong>} <br />
+                                            (ok.agree === 2 ? 
+                                                <span className="done">Đã hoàn thành</span> :
+                                                <strong className="no">Khách đã hủy</strong>
+                                            )} <br />
                                         {ok.status === 1 ?
                                             <span onClick={() => {
                                                 handleStatus(ok.status, ok.id) }}>
-                                                <i className="far fa-check-circle"></i> Đã hoàn thành</span> :
+                                                <i className="far fa-check-circle"></i> Đã xác nhận</span> :
                                                 <span onClick={() => handleStatus(ok.status, ok.id)}>
                                                 <i className="far fa-circle"></i> Đang trong tour</span>}
                                     </div>,
                             action:
                                 <div className="action">
+                                    <Popconfirm title="Bạn có muốn sửa？" onConfirm={() => { hangdleEdit(ok.id) }} icon={<QuestionCircleOutlined style={{ color: 'green' }} />}>
+                                        <i className="far fa-edit mr-4"></i>
+                                    </Popconfirm>
                                     <Popconfirm title="Bạn có muốn xoá？" onConfirm={() => { hangdleDelete(ok.id) }} icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
                                         <i className="far fa-trash-alt" ></i>
                                     </Popconfirm>

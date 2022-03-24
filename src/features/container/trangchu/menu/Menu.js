@@ -242,7 +242,7 @@ function ListMenu(props) {
               <Link
                 className="nav-link"
                 activeClass="active"
-                to="tour"
+                to="tour-trong"
                 spy={true}
                 smooth={true}
                 offset={-70}
@@ -262,19 +262,6 @@ function ListMenu(props) {
                 duration={500}
               >
                 Tour nước ngoài
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link
-                className="nav-link"
-                activeClass="active"
-                to="album"
-                spy={true}
-                smooth={true}
-                offset={-70}
-                duration={500}
-              >
-                Album
               </Link>
             </li>
             <li className="nav-item">
@@ -334,7 +321,7 @@ function ListMenu(props) {
               </div>
             </div>
             <div className="text-center">
-              <Button variant="contained" color="secondary" onClick={showDrawer2} className=" mt-2">Thay đổi thông tin</Button>
+              <Button variant="contained" color="" onClick={showDrawer2} className=" mt-2">Thay đổi thông tin</Button>
             </div>
           </div>
         }

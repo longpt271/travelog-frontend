@@ -3,5 +3,9 @@
 }
 
 .no {
-    color:red
+    color:red;
+}
+
+.done {
+    color: var(--primary-color);
 }

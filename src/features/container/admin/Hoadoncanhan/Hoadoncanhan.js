@@ -7,6 +7,8 @@ import Axios from 'axios';
 import "./hoadoncanhan.css"
 import { Link } from 'react-router-dom'
 
+import { useHistory, useRouteMatch } from 'react-router-dom';
+
 function Hoadoncanhan() {
     const columns = [
         {
@@ -42,7 +44,7 @@ function Hoadoncanhan() {
             dataIndex: 'tt'
         },
         {
-            title: 'Del?',
+            title: 'Action',
             dataIndex: 'action'
         }
     ];
@@ -58,7 +60,7 @@ function Hoadoncanhan() {
     let hoadoncanhan = [];
     if (hoadoncanhans) {
         for (let i = 0; i < hoadoncanhans.length; i++) {
-            if (hoadoncanhans[i].agree === 1 || hoadoncanhans[i].agree === 2) {
+            if (hoadoncanhans[i].kiemduyet === 1) {
                 hoadoncanhan.push(hoadoncanhans[i])
             }
         }
@@ -96,6 +98,15 @@ function Hoadoncanhan() {
             actionResult();
         }, 500);
     }
+    
+    // chức năng sửa
+    const match = useRouteMatch()
+    const history = useHistory()
+
+    const hangdleEdit = (id) => {
+        history.replace(`${match.url}/suahoadoncanhan/${id}`)
+    }
+
     return (
         <div id="admin">
             <div className="heading">
@@ -120,16 +131,25 @@ function Hoadoncanhan() {
                             tt: <div className="action">
                                 {ok.agree === 1 ? 
                                     <span className="yes">Đã đặt</span> : 
-                                    <strong className="no">Khách đã hủy</strong>} <br />
+                                    (ok.agree === 2 ? 
+                                        <span className="done">Đã hoàn thành</span> :
+                                        (ok.agree === 3 ?
+                                            <strong className="no">Khách đã hủy</strong> :
+                                            <span className="wait">Chờ xác nhận&hellip;</span>
+                                        )
+                                    )} <br />
                                 {ok.status === 1 ?
                                     <span onClick={() => {
                                         handleStatus(ok.status, ok.id) }}>
-                                        <i className="far fa-check-circle"></i> Đã hoàn thành</span> :
+                                        <i className="far fa-check-circle"></i> Đã xác nhận</span> :
                                         <span onClick={() => handleStatus(ok.status, ok.id)}>
                                         <i className="far fa-circle"></i> Đang trong tour</span>}
                             </div>,
                             action:
                                 <div className="action">
+                                    <Popconfirm title="Bạn có muốn sửa？" onConfirm={() => { hangdleEdit(ok.id) }} icon={<QuestionCircleOutlined style={{ color: 'green' }} />}>
+                                        <i className="far fa-edit mr-4"></i>
+                                    </Popconfirm>
                                     <Popconfirm title="Bạn có muốn xoá？" onConfirm={() => { hangdleDelete(ok.id) }} icon={<QuestionCircleOutlined style={{ color: 'red' }} />}>
                                         <i className="far fa-trash-alt" ></i>
                                     </Popconfirm>

@@ -43,7 +43,7 @@ function Footer(props) {
                 </p>
                 <p>
                   <strong>Số điện thoại: </strong>
-                  <i>+{ok.sdt}</i>
+                  <div className="phone-hv"><i>+{ok.sdt}</i></div>
                 </p>
                 <p>
                   <strong>Địa chỉ: </strong>

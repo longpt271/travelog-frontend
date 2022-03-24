@@ -1,5 +1,4 @@
 .history__content{
-    padding-top: 1rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
 }
@@ -11,6 +10,12 @@ h4 {
 a .history__box{
     color: black;
 }
+.hr-tour {
+  height: 1px;
+  width: 150px;
+  background-color: #0abf54;
+}
+
 .history__box{
     /* margin-top: 0.5rem; */
     margin-bottom: 1rem;
@@ -19,6 +24,7 @@ a .history__box{
     overflow: hidden;
     display: flex;
 }
+
 .history__box img{
     border-radius: 10px;
     width: 128px !important;
@@ -51,11 +57,25 @@ a .history__box{
     margin-left: 1rem;
 }
 
-.tourcanhan__box {
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    margin-bottom: 1rem;
-
-    padding: 1.2rem 1rem 1.2rem 1rem;
-    border-radius: 5px;
+.icon-cosan {
+    font-size: 35px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+    padding-right: 15px;
 }
 
+.icon-canhan {
+    font-size: 35px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.lichsuCosan_overflow {
+  height: 31vh;
+  overflow: auto;
+}
+
+.lichsuCanhan_overflow {
+    height: 31vh;
+    overflow: auto;
+  }

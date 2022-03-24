@@ -1,4 +1,10 @@
 
+/* web 2048x1152 */
+@media (min-width: 2048px){
+    .slider__background__bottom {
+        height: 110px;
+    }
+}
 
 /* mobile và tablet */
 @media (max-width: 1023px){
