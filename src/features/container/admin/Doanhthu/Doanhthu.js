@@ -7,14 +7,91 @@ import { chitieuData } from './chitieuSlice';
 import Axios from 'axios';
 import { userData } from '../taikhoan/taikhoanSlice';
 import anhnen from "../../../images/people-blue.png";
+import { userroleData } from '../header/userroleSlice';
 
 
 
 export default function Doanhthu() {
     const [isModalVisible, setIsModalVisible] = useState(false);
-    const [state, setState] = useState({ chitieuthang: "", chitieungay: "", chitieunam: "" });
-    // const [usd, setusd] = useState(1);
     const [usd, setusd] = useState(23060);
+    // console.log(usd);
+
+    // Thêm database userroles
+    const actionUserrole = async () => { await dispatch(userroleData()) }
+    useEffect(() => {
+        actionUserrole()
+    }, [])
+    const UserRole = useSelector(state => state.userroles.userrole.data);
+
+    // Them database
+    const SoTour = useSelector(state => state.tours.tour.data)
+    const DiaDiem = useSelector(state => state.diadiems.diadiem.data)
+    const SoAnh = useSelector(state => state.anhs.anh.data);
+    const SoBinhLuan = useSelector(state => state.binhluans.binhluan.data);
+    
+    const SoNguoiDung = useSelector(state => state.taikhoan.user.data);
+    const HoaDon = useSelector(state => state.hoadons.hoadon.data);
+    const HoaDonCaNhan = useSelector(state => state.hoadoncanhans.hoadoncanhan.data);
+
+     // Tổng role tài khoản
+     let TongAdmin = [];
+     let TongNhanVien = [];
+     let TongKhachHang = [];
+     if (UserRole) {
+         for (let i = 0; i < UserRole.length; i++) {
+            if(UserRole[i].roleId === 1) {
+                TongAdmin += UserRole[i].roleId;
+            }
+            if(UserRole[i].roleId === 2 || UserRole[i].roleId === 3) {
+                TongNhanVien += UserRole[i].roleId;
+            }
+            if(UserRole[i].roleId === 6) {
+                TongKhachHang += UserRole[i].roleId;
+            }
+         }
+     }
+     
+
+    //chi phí
+    const chiphi = useSelector(state => state.chiphis.chiphi.data);
+    const dispatch = useDispatch();
+    const actionResult = async () => { await dispatch(userData()) }
+
+    let TongChiPhi = 0;
+    if (chiphi) {
+        for (let i = 0; i < chiphi.length; i++) {
+            TongChiPhi += chiphi[i].money;
+        }
+    }
+
+    //chi phí tháng
+    let ChiPhiDate = []
+    if (chiphi) {
+        for (let i = 0; i < chiphi.length; i++) {
+            let date = new Date(chiphi[i].createdAt);
+            ChiPhiDate.push({ id: chiphi[i].id, tongtien: chiphi[i].money, date: (date.getDate() < 10 ? "0" + date.getDate() : date.getDate()) + "-" + ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + date.getFullYear() })
+        }
+    }
+    let TongChiPhiThang = 0;
+    if (ChiPhiDate) {
+        let date = new Date();
+        let dateMonth = ((date.getMonth() + 1) < 10 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1)) + "-" + date.getFullYear();
+        for (let i = 0; i < ChiPhiDate.length; i++) {
+            if ((ChiPhiDate[i].date).substr(3) == dateMonth) {
+                TongChiPhiThang += ChiPhiDate[i].tongtien;
+            }
+        }
+    }
+    
+    //chỉ tiêu
+    const [state, setState] = useState({ chitieuthang: "", chitieungay: "", chitieunam: "" });
+    
+    const onChange = (e) => {
+        setState({
+            ...state,
+            [e.target.name]: e.target.value
+        })
+    }
 
     const showModal = () => {
         setIsModalVisible(true);
@@ -23,17 +100,7 @@ export default function Doanhthu() {
     const handleOk = () => {
         setIsModalVisible(false);
     };
-    const chiphi = useSelector(state => state.chiphis.chiphi.data);
-    const dispatch = useDispatch();
-    const actionResult = async () => { await dispatch(userData()) }
 
-    let TongChiPhi = 0;
-
-    if (chiphi) {
-        for (let i = 0; i < chiphi.length; i++) {
-            TongChiPhi += chiphi[i].money;
-        }
-    }
     const actionChitiet = async () => await dispatch(chitieuData());
     const chitieu = useSelector(state => state.chitieu.chitieu.data);
     useEffect(() => {
@@ -56,37 +123,35 @@ export default function Doanhthu() {
         setIsModalVisible(false);
     };
     
-    
-    const SoTour = useSelector(state => state.tours.tour.data)
-    const SoDiaDiem = useSelector(state => state.diadiems.diadiem.data)
-    const SoAnh = useSelector(state => state.anhs.anh.data);
-    const SoBinhLuan = useSelector(state => state.binhluans.binhluan.data);
-    
-    const SoNguoiDung = useSelector(state => state.taikhoan.user.data);
-    const HoaDon = useSelector(state => state.hoadons.hoadon.data);
-    const HoaDonCaNhan = useSelector(state => state.hoadoncanhans.hoadoncanhan.data);
 
+    //Tổng toàn bộ hóa đơn đã được đặt
+    let TongHdTour = HoaDon ? HoaDon.length : 0;
+    let TongHdcnTour = HoaDonCaNhan ? HoaDonCaNhan.length : 0;
+    let TongHoaDon = TongHdTour + TongHdcnTour;
 
-    // Hóa đơn chưa thanh toán
-    
-    let TongHdUnPay = 0;
+    // Hóa đơn đã hoàn thành và đã thanh toán
+    let TongHdDone = 0;
     if (HoaDon) {
         for (let i = 0; i < HoaDon.length; i++) {
-            if(HoaDon[i].agree === 2 && HoaDon[i].pay !== 1) {
-                TongHdUnPay += HoaDon[i];
+            if(HoaDon[i].agree === 2 && HoaDon[i].pay === 1) {
+                TongHdDone += HoaDon[i].pay;       // vì pay có giá trị là 1 luôn nên k cần count :>
             }
         }
     }
-    let TongHdcnUnPay = 0;
+    let TongHdcnDone = 0;
     if (HoaDonCaNhan) {
         for (let i = 0; i < HoaDonCaNhan.length; i++) {
-            if(HoaDonCaNhan[i].agree === 2 && HoaDonCaNhan[i].pay !== 1) {
-                TongHdcnUnPay += HoaDonCaNhan[i];
+            if(HoaDonCaNhan[i].agree === 2 && HoaDonCaNhan[i].pay === 1) {
+                TongHdcnDone += HoaDonCaNhan[i].pay;
             }
         }
     }
 
-    
+    // Hóa đơn đang trong tour hoặc đang xử lý
+    let TongHdLoad = TongHdTour - TongHdDone;
+    let TongHdcnLoad = TongHdcnTour - TongHdcnDone;
+
+
     // Date chỉ tiêu, thu hóa đơn
     let HoaDonDate = []
     if (HoaDon) {
@@ -180,7 +245,6 @@ export default function Doanhthu() {
             }
         }
     }
-    console.log(usd);
     let TongThuNhapHdCaNhan = 0;
     if (HoaDonCaNhan) {
         for (let i = 0; i < HoaDonCaNhan.length; i++) {
@@ -189,18 +253,17 @@ export default function Doanhthu() {
             }
         }
     }
-    let TongThuNhap = Number(TongThuNhapHd + TongThuNhapHdCaNhan);
+    let TongThuNhap = TongThuNhapHd + TongThuNhapHdCaNhan;
+
 
     // Lợi nhuận
     const LoiNhuan = (a, b) => {
         return (b - a).toLocaleString();
     }
-    const onChange = (e) => {
-        setState({
-            ...state,
-            [e.target.name]: e.target.value
-        })
-    }
+
+    //Lợi nhuận tháng
+    let LoiNhuanThang = ThuNhapThang - TongChiPhiThang;
+
     // let thunhapHd = Number((TongThuNhapHd / usd).toFixed(0));
     let thunhapHdvnd = Number((TongThuNhapHd).toFixed(0));
     // let thunhapcanhan = ((TongThuNhapHdCaNhan / usd).toFixed(0));
@@ -210,23 +273,25 @@ export default function Doanhthu() {
     
     let chiphitong = Number(((TongChiPhi / usd).toFixed(0)));
     let chiphitongvnd = Number(((TongChiPhi).toFixed(0)));
-    const { chitieunam, chitieuthang, chitieungay } = state
 
+    const { chitieunam, chitieuthang, chitieungay } = state
     let phantramngay = Number((ThuNhapHomNay/chitieungay)*100).toFixed(1);
     let phantramthang = Number((ThuNhapThang/chitieuthang)*100).toFixed(1);
     let phantramnam = Number((ThuNhapNam/chitieunam)*100).toFixed(1);
+    const loading = useSelector(state => state.hoadons.loading)
+
     return (
         <div id="doanhthu">
             
             <div class="row">
                 <div class="col-md-12 grid-margin">
-                <div class="row">
-                    <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-                    <h3 class="font-weight-bold">Welcome</h3>
-                    <h6 class="font-weight-normal mb-0">All systems are running smoothly! Have nice day!</h6>
+                    <div class="row">
+                        <div class="col-12">
+                            <h3 class="font-weight-bold">Welcome</h3>
+                            <h6 class="font-weight-normal mb-0">All systems are running smoothly! Have nice day!</h6>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
             <div class="row">
                 <div class="col-md-6 grid-margin stretch-card">
@@ -262,7 +327,7 @@ export default function Doanhthu() {
                             <div class="card card-1">
                                 <div class="card-body">
                                     <strong class="mb-4">Số địa điểm đã tạo:</strong><br />
-                                    <span class="fs-30">{SoDiaDiem ? SoDiaDiem.length : 0}</span>
+                                    <span class="fs-30">{DiaDiem ? DiaDiem.length : 0}</span>
                                 </div>
                             </div>
                             </div>
@@ -291,16 +356,20 @@ export default function Doanhthu() {
                             <div class="card-body">
                                 <div className="">
                                         <strong class="">Tổng số hóa đơn</strong><br />
-                                        <span class="fs-30"><strong>{HoaDonCaNhan.length + HoaDon.length}</strong></span>
+                                        <span class="fs-30"><strong>{TongHoaDon}</strong></span>
                                 </div>
                                 <div className="grid">
                                 <div>
-                                    <span>Hóa đơn tour: <strong>{HoaDon ? HoaDon.length : 0}</strong></span><br />
-                                    <span>Hóa đơn cá nhân: <strong>{HoaDonCaNhan ? HoaDonCaNhan.length : 0}</strong></span><br />
+                                    <span>Hóa đơn tour: <strong>{TongHdTour}</strong></span><br />
+                                    <span>Hóa đơn cá nhân: <strong>{TongHdcnTour}</strong></span><br />
                                 </div>
                                 <div>
-                                    <span class="mb-2">Tour chưa thanh toán: <strong>{TongHdUnPay.length}</strong></span><br />
-                                    <span class="mb-2">Tour cá nhân chưa thanh toán: <strong>{TongHdcnUnPay.length}</strong></span><br />
+                                    <span class="mb-2">Đã hoàn thành: <strong>{TongHdDone}</strong></span><br />
+                                    <span class="mb-2">Đã hoàn thành: <strong>{TongHdcnDone}</strong></span><br />
+                                </div>
+                                <div>
+                                    <span class="mb-2">Đang xử lý: <strong>{TongHdLoad}</strong></span><br />
+                                    <span class="mb-2">Đang xử lý: <strong>{TongHdcnLoad}</strong></span><br />
                                 </div>
                                 </div>
                             </div>
@@ -311,6 +380,15 @@ export default function Doanhthu() {
                             <div class="card-body">
                                 <strong class="">Tổng số tài khoản</strong><br />
                                 <span class="fs-30"><strong>{SoNguoiDung ? SoNguoiDung.length : 0}</strong></span>
+                                <div className="grid">
+                                    <div>
+                                        <span>Admin: <strong>{TongAdmin.length}</strong></span><br />
+                                        <span>Nhân viên: <strong>{TongNhanVien.length}</strong></span><br />
+                                    </div>
+                                    <div>
+                                        <span>Khách hàng: <strong>{TongKhachHang.length}</strong></span><br />
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         </div>
@@ -321,7 +399,7 @@ export default function Doanhthu() {
                         <div class="col-md-4 mb-4 mb-lg-0 stretch-card transparent">
                             <div class="card card-3">
                                 <div class="card-body">
-                                    <div className="mb-2">
+                                    <div>
                                         <strong class="mb-4">Tổng thu nhập</strong><br />
                                         <span class="mb-2"><span class="fs-30">{TongThuNhap ? thunhapvnd.toLocaleString() : 0}</span> ($ {TongThuNhap ? thunhap.toLocaleString() : 0})</span><br />
                                         <span class="mb-2">Tổng thu tour: <strong>{TongThuNhapHd ? thunhapHdvnd.toLocaleString() : 0} vnđ</strong></span><br />
@@ -333,10 +411,10 @@ export default function Doanhthu() {
                         <div class="col-md-4 stretch-card transparent">
                             <div class="card card-3">
                                 <div class="card-body">
-                                    <div className="mb-2">
+                                    <div>
                                         <strong class="mb-4">Tổng chi phí</strong><br />
                                         <span class="mb-2"><span class="fs-30">{chiphitongvnd.toLocaleString()}</span> ($ {chiphitong.toLocaleString()})</span><br />
-                                        <span class="mb-2"><strong></strong></span>
+                                        <span class="mb-2">Chi phí tháng này: <strong>{TongChiPhiThang.toLocaleString()}</strong></span><br />
                                     </div>
                                 </div>
                             </div>
@@ -344,10 +422,10 @@ export default function Doanhthu() {
                         <div class="col-md-4 stretch-card transparent">
                             <div class="card card-3">
                                 <div class="card-body">
-                                    <div className="mb-2">
+                                    <div>
                                         <strong class="mb-4">Tổng lợi nhuận</strong><br />
                                         <span class="mb-2"><span class="fs-30">{LoiNhuan(chiphitongvnd, thunhapvnd)}</span> ($ {LoiNhuan(chiphitong, thunhap)})</span><br />
-                                        <span class="mb-2"><strong></strong></span>
+                                        <span class="mb-2">Lợi nhuận tháng này: <strong>{LoiNhuanThang.toLocaleString()}</strong></span><br />
                                     </div>
                                 </div>
                             </div>
@@ -372,9 +450,9 @@ export default function Doanhthu() {
                                 <span>Vượt chỉ tiêu: <span className="gold">{(ThuNhapHomNay - chitieungay).toLocaleString()} <span className="text-danger bold">vnđ</span></span></span>
                             <div className="hr"></div>
                             <div className="mt-2">
-                                <span>Tổng thu: <span className="gold">{ThuNhapHomNay.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
-                                <span>Tổng thu tour: <span className="gold">{ThuNhapHdHomNay.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
-                                <span>Tổng thu cá nhân: <span className="gold">{ThuNhapHdCaNhanHomNay.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu ngày: <span className="gold">{ThuNhapHomNay.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu tour ngày: <span className="gold">{ThuNhapHdHomNay.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu cá nhân ngày: <span className="gold">{ThuNhapHdCaNhanHomNay.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
                             </div>
                         </div>
                     </div>
@@ -391,9 +469,9 @@ export default function Doanhthu() {
                                 <span>Vượt chỉ tiêu: <span className="gold">{(ThuNhapThang - chitieuthang).toLocaleString()} <span className="text-danger bold">vnđ</span></span></span>
                             <div className="hr"></div>
                             <div className="mt-2">
-                                <span>Tổng thu: <span className="gold">{ThuNhapThang.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
-                                <span>Tổng thu tour: <span className="gold">{ThuNhapHdThang.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
-                                <span>Tổng thu cá nhân: <span className="gold">{ThuNhapHdCaNhanThang.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu tháng: <span className="gold">{ThuNhapThang.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu tour tháng: <span className="gold">{ThuNhapHdThang.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu cá nhân tháng: <span className="gold">{ThuNhapHdCaNhanThang.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
                             </div>
                         </div>
                     </div>
@@ -409,15 +487,16 @@ export default function Doanhthu() {
                                 <span>Vượt chỉ tiêu: <span className="gold">{(ThuNhapNam - chitieunam).toLocaleString()} <span className="text-danger bold">vnđ</span></span></span>
                             <div className="hr"></div>
                             <div className="mt-2">
-                                <span>Tổng thu: <span className="gold">{ThuNhapNam.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
-                                <span>Tổng thu tour: <span className="gold">{ThuNhapHdNam.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
-                                <span>Tổng thu cá nhân: <span className="gold">{ThuNhapHdCaNhanNam.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu năm: <span className="gold">{ThuNhapNam.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu tour năm: <span className="gold">{ThuNhapHdNam.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
+                                <span>Tổng thu cá nhân năm: <span className="gold">{ThuNhapHdCaNhanNam.toLocaleString()} <span className="text-danger bold">vnđ</span></span></span><br />
                             </div>
                         </div>
                     </div>
 
                 </div>
             </div>
+            
             <Modal title="Đặt chỉ tiêu" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
                 <div class="form-group">
                     <label for="">Chỉ tiêu ngày</label>
