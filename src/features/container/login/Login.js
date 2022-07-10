@@ -102,7 +102,7 @@ function Login(props) {
                     </div>
                 </div>
             </div>
-            <Footer />
+            {/* <Footer /> */}
         </Router>
 
     )

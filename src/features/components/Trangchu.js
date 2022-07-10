@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import Category from "../container/trangchu/category/Category";
 import Album from "../container/trangchu/album/Album";
 import Slider from "../container/trangchu/slider/Slider";
 import CreateTour from "../container/createTour/CreateTour";
@@ -15,10 +16,11 @@ export class Trangchu extends Component {
       <div>
         <Slider />
         <CreateTour />
-        <Tourtrongnuoc />
-        <Tournuocngoai />
-        <Camnangdulich />
+        <Category />
         {/* <Album /> */}
+        <Tourtrongnuoc />
+        {/* <Tournuocngoai /> */}
+        <Camnangdulich />
         <Ykienkhachhang />
         <Footer />
       </div>

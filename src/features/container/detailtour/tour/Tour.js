@@ -14,6 +14,8 @@ import { addhoadon, hoadonData } from "../../admin/Hoadon/hoadonSlice";
 import taikhoanApi from "../../../../api/taikhoanApi";
 import { ngaydiData } from "../../admin/Ngaydi/ngaydiSlice";
 import { addthanhtoan } from "./thanhtoanSlice";
+import { Link as Linkrt } from "react-router-dom";
+
 function Tour(props) {
     const { id } = useParams();
     const [state, setState] = useState({
@@ -438,6 +440,9 @@ function Tour(props) {
                                 </div>
                                 <div className="col-lg-4 position-relative ">
                                     <div className=" pl-3">
+                                        <div>
+                                                <h3>{tour_ngay[0].name}</h3>
+                                        </div>
                                         <div className="star float-left">
                                             <Rate value={tinhdiem()} disabled />
                                         </div>
@@ -567,11 +572,22 @@ function Tour(props) {
                                                 </tr>
                                             </table>
                                         </div>
+                                        
+                                        <Linkrt to="/shoping-cart">
+                                            <Button
+                                                className="float-right position-absolute btn-dt btn-cart"
+                                            color="primary"
+                                            variant="contained"
+                                            >
+                                                <i className="fas fa-shopping-cart">&#43;</i>
+                                            </Button>
+                                        </Linkrt>
+                                        <br />
                                         <Button
                                             className="float-right position-absolute btn-dt"
                                             onClick={showModal}
                                             variant="contained"
-                                            color="secondary"
+                                            color="primary"
                                         >
                                             Đặt tour
                                         </Button>
@@ -596,7 +612,7 @@ function Tour(props) {
                     </div>
                 ))
             )}
-            <div className="footer-bottom"><Footer /></div>
+            <div><Footer /></div>
             <Modal
                 title="Đặt tour"
                 visible={state.visible}

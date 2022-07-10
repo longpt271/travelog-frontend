@@ -33,15 +33,15 @@
 body {
   margin: 0;
   font-family: 'Nunito', sans-serif !important;
-  background-color: #f4f4f4;
+  background-color: #f5f5f5 !important;
 }
 
 /* css cho footer dưới cùng */
-.footer-bottom {
+/* .footer-bottom {
   position:absolute;
   bottom:-19vh;
   width:100%;
-}
+} */
 
 /* css cũ */
 .heading span {

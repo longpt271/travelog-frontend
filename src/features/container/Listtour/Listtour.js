@@ -10,6 +10,7 @@ import "./checkactive.js";
 export default function Listtour() {
     const binhluans = useSelector(state => state.binhluans.binhluan.data);
     const tours = useSelector(state => state.tours.tour.data);
+    // const tourloaitours = useSelector(state => state.tourloaitours.tourloaitour.data);
     const [state, setState] = useState({
         check: "trong",
         statetrongnuoc: "",
@@ -115,6 +116,21 @@ export default function Listtour() {
                 }
                 console.log(tourtrongnuoc);
             }
+            // if (tours) {
+            //     var sort = []
+            //     for (let i = 0; i < tours.length; i++) {
+            //         sort.unshift(tours[i])
+            //     }
+            //     console.log(sort);
+            //     var date = new Date();
+            //     var today = date.getFullYear() + "-" + ((date.getMonth() + 1) > 10 ? date.getMonth() + 1 : ("0" + (date.getMonth() + 1))) + "-" + (date.getDate() > 10 ? date.getDate() : ("0" + date.getDate()));
+            //     for (let i = 0; i < sort.length; i++) {
+            //         if (sort[i].status === 1 && sort[i].vitri === 1 && (sort[i].name).toLowerCase().search(e) === 0 && maxDate(sort[i].Ngaydis) >= today) {
+            //             tourtrongnuoc.push(sort[i])
+            //         }
+            //     }
+            //     console.log(tourtrongnuoc);
+            // }
             setState({
                 ...state,
                 statetrongnuoc: tourtrongnuoc
@@ -164,32 +180,36 @@ export default function Listtour() {
                 </nav>
             </div>
             <div className="container">
-                <div className="row bg-white rounded">
-                    <div className="col-md-12 bg ">
-                        <div className="grid">
-                            <div className="ml-3">
-                                    {/* <h4 className="">Tìm Kiếm tour</h4> */}
-                                <Search placeholder="Tìm kiếm tour" onSearch={search} enterButton />
-                            </div>
-                            <div className="mr-4">
-                                {/* <h4 className="">Loại tour</h4> */}
-                                <Select className="w-100" defaultValue="trong" style={{ width: 120 }} onChange={handleChange}>
-                                    <Option value="trong">Tour trong nước</Option>
-                                    <Option value="ngoai">Tour nước ngoài</Option>
-                                </Select>
-                            </div>
-                        </div>
-                        {/* {state.check === "trong" ?
+                <div className="row mb-4 bg-white rounded">
+                    <div className="col-md-2 border-right pb-3 bg ">
+                        <h5 className="pt-4">Tìm kiếm tour</h5>
+                        <Search placeholder="Tìm kiếm tour" onSearch={search} enterButton />
+
+                        <h5 className="mt-3">Loại tour</h5>
+                        <Select className="w-100" defaultValue="trong" style={{ width: 120 }} onChange={handleChange}>
+                            <Option value="trong">Tour trong nước</Option>
+                            <Option value="ngoai">Tour nước ngoài</Option>
+                        </Select>
+                        {state.check === "trong" ?
                             <div>
-                                <h4 className="mt-3">Vùng</h4>
-                                <Select className="w-100" defaultValue="bac" style={{ width: 120 }}>
+                                <h5 className="mt-3">Vùng</h5>
+                                <Select className="w-100" defaultValue="trung" style={{ width: 120 }}>
                                     <Option value="bac">Miền Bắc</Option>
                                     <Option value="trung">Miền Trung</Option>
                                     <Option value="nam">Miền Nam</Option>
                                 </Select>
                             </div> : ""
                         }
-                        <h4 className="mt-3">Đánh giá</h4>
+                        {state.check === "trong" ?
+                            <div>
+                                <h5 className="mt-3">Miền</h5>
+                                <Select className="w-100" defaultValue="dbb" style={{ width: 120 }}>
+                                    <Option value="dbb">Đông Bắc Bộ</Option>
+                                    <Option value="tbb">Tây Bắc Bộ</Option>
+                                </Select>
+                            </div> : ""
+                        }
+                        <h5 className="mt-3">Đánh giá</h5>
                         <div className="star-mid text-primary">
                             <ul>
                                 <li className="active"><span onClick={() => checkstar(5)} style={{ cursor: "pointer" }}><Rate value="5" disabled /><span className="ml-2">từ 5 sao</span><br /></span></li>
@@ -198,23 +218,16 @@ export default function Listtour() {
                                 <li><span onClick={() => checkstar(2)} style={{ cursor: "pointer" }}><Rate value="2" disabled /><span className="ml-2">từ 2 sao</span><br /></span></li>
                                 <li><span onClick={() => checkstar(1)} style={{ cursor: "pointer" }}><Rate value="1" disabled /><span className="ml-2">từ 1 sao</span><br /></span></li>
                             </ul>
-                        </div> */}
-                        {/* <div className="star-mid text-primary">
-                            <span onClick={() => checkstar(5)} style={{ cursor: "pointer" }}><Rate value="5" disabled /><span className="ml-2">từ 5 sao</span><br /></span>
-                            <span onClick={() => checkstar(4)} style={{ cursor: "pointer" }}><Rate value="4" disabled /><span className="ml-2">từ 4 sao</span><br /></span>
-                            <span onClick={() => checkstar(3)} style={{ cursor: "pointer" }}><Rate value="3" disabled /><span className="ml-2">từ 3 sao</span><br /></span>
-                            <span onClick={() => checkstar(2)} style={{ cursor: "pointer" }}><Rate value="2" disabled /><span className="ml-2">từ 2 sao</span><br /></span>
-                            <span onClick={() => checkstar(1)} style={{ cursor: "pointer" }}><Rate value="1" disabled /><span className="ml-2">từ 1 sao</span><br /></span>
-                        </div> */}
+                        </div>
                     </div>
-                    <div className="col-md-12 mt-4">
-                        {/* <div className="title text-center mt-3">
+                    <div className="col-md-10">
+                        <div className="title text-center">
                             {state.check === 'trong' ? <h3>Tour trong nước</h3> : <h3>Tour nước ngoài</h3>}
                             <div className="hr w-25"></div>
-                        </div> */}
+                        </div>
                         <div className="box-tour">
-                            <div className="container box-tour-overflow">
-                                <div className="row">
+                            <div className="container">
+                                <div className="row mt-4">
                                     {state.check === 'trong' ?
                                         state.statetrongnuoc === "" ?
                                             tourtrongnuoc.map((ok, index) => (
@@ -302,7 +315,7 @@ export default function Listtour() {
                     </div>
                 </div>
             </div>
-            <div className="footer-bottom"><Footer /></div>
+            {/* <Footer /> */}
         </div>
     )
 }

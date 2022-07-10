@@ -121,9 +121,9 @@ function Tourtrongnuoc(props) {
           </div>
         </div>
 
-        <div className="xem-them mt-3">
+        {/* <div className="xem-them mt-3">
           <Link to="/list-tour">Xem thêm &gt;&gt;</Link>
-        </div>
+        </div> */}
       </div>
     </div>
 

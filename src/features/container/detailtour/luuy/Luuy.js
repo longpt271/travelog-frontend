@@ -17,7 +17,7 @@ function Luuy(props) {
             <div className="heading-nx">
                 <h3>Lưu ý</h3>
             </div>
-            <div className="container ct-tour-overflow ml-1">
+            <div className="container ml-1">
                 <div className="luuy">
                     {tour.map(ok => (
                         <div key={ok.id}>{renderHTML(ok.luuy)}</div>

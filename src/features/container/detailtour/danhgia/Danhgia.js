@@ -138,17 +138,17 @@ function Danhgia(props) {
     return (
         <div id="nx">
             <div className="heading-nx">
-                <h3>Đánh giá</h3>
+                <h3>Đánh giá khách hàng</h3>
             </div>
             <div>
                 <div className="row">
-                    <div className="row col-md-7 ml-1">
-                        <div className="col-md-2 text-center">
+                    <div className="col-md-6 text-center">
+                        <div>
                             <p className="scores">{tinhdiem()}</p>
                             <Rate className="rate" value={tinhdiem()} disabled />
-                            <p>{songuoidanhgia()} nhận xét</p>
+                            <p>Tồng {songuoidanhgia()} nhận xét</p>
                         </div>
-                        <div className="col-md-10">
+                        <div>
                             <div>
                                 <Rate className="rate " value="5" disabled />
                                 <Progress percent={progress_sao(sao(5))} showInfo={false} />
@@ -176,8 +176,31 @@ function Danhgia(props) {
                             </div>
                         </div>
                     </div>
+                    {checklogin === undefined ? '' :
+                    <div className="col-md-6">
+                        {/* <h3>Đánh giá tour</h3> */}
+                        <div className="mb-5">
+                            <div>
+                                <strong className="dg-diem">Cho điểm: </strong><Rate className="rate-dg ml-4" defaultValue="5" onChange={danhgiatext} /><span className="ml-4 text-dg"><b>{text}</b></span>
+                            </div>
+                            <div>
+                                <form action="" method="post" onSubmit={onSubmit}>
+                                    <div class="form-group">
+                                        <label for=""></label>
+                                        <textarea name="binhluan" value={binhluan} onChange={onChange} id="" cols="30" rows="7" placeholder="Đánh giá của bạn" className="form-control"></textarea>
+                                    </div>
+                                    <div className="position-relative"><Button htmlType="submit" type="primary" className="btn-dg">Đánh giá</Button></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                }
+                </div>
+                <div className="container"><hr /></div>
+                
+                
                     
-                    <div className="col-md-5 nx-overflow">
+                <div className=" nx-overflow">
                         {load ? <div className="spin"><Spin className="mt-5" /></div> :
                             binhluanload.map(ok => (
                                 <div className="mb-5" key={ok.id}>
@@ -197,27 +220,6 @@ function Danhgia(props) {
                                 </div>
                             ))}
                     </div>
-                </div>
-                <div className="container"><hr /></div>
-                {checklogin === undefined ? '' :
-                    <div className="container">
-                        {/* <h3>Đánh giá tour</h3> */}
-                        <div className="container mb-5">
-                            <div>
-                                <strong className="dg-diem">Cho điểm: </strong><Rate className="rate-dg ml-4" defaultValue="5" onChange={danhgiatext} /><span className="ml-4 text-dg"><b>{text}</b></span>
-                            </div>
-                            <div>
-                                <form action="" method="post" onSubmit={onSubmit}>
-                                    <div class="form-group">
-                                        <label for=""></label>
-                                        <textarea name="binhluan" value={binhluan} onChange={onChange} id="" cols="30" rows="7" placeholder="Đánh giá của bạn" className="form-control"></textarea>
-                                    </div>
-                                    <div className="position-relative"><Button htmlType="submit" type="primary" className="btn-dg">Đánh giá</Button></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                }
             </div>
         </div>
 

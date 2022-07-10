@@ -24,21 +24,26 @@ function Detail(props) {
                 <Tabs defaultActiveKey="1" renderTabBar={renderTabBar}>
                     <TabPane tab="Chi tiết tour" key="1" >
                         <Chitiettour id={props.id} />
-                    </TabPane>
-                    <TabPane tab="Giá" key="2">
-                        <Chitietgia id={props.id} />
-                    </TabPane>
-                    <TabPane tab="Dịch vụ đi kèm" key="3">
-                        <Dichvudikem id={props.id} />
-                    </TabPane>
-                    <TabPane tab="Lưu ý" key="4">
-                        <Luuy id={props.id} />
-                    </TabPane>
-                    <TabPane tab="Bản đồ" key="5">
+
+                        <Luuy id={props.id} /><br />
+                        <Chitietgia id={props.id} /><br />
+                        <Danhgia id={props.id} /><br />
                         <div className="container"><Maps id={props.id} /></div>
                     </TabPane>
-                    <TabPane tab="Đánh giá khách hàng" key="6">
+                    <TabPane tab="Lưu ý" key="2">
+                        <Luuy id={props.id} />
+                    </TabPane>
+                    <TabPane tab="Giá" key="3">
+                        <Chitietgia id={props.id} />
+                    </TabPane>
+                    <TabPane tab="Dịch vụ đi kèm" key="4">
+                        <Dichvudikem id={props.id} />
+                    </TabPane>
+                    <TabPane tab="Đánh giá khách hàng" key="5">
                         <Danhgia id={props.id} />
+                    </TabPane>
+                    <TabPane tab="Bản đồ" key="6">
+                        <div className="container"><Maps id={props.id} /></div>
                     </TabPane>
                 </Tabs>
             </StickyContainer>

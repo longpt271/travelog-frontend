@@ -1,44 +1,192 @@
-.breadcrumb {
-    padding-top: 1%;
-}
-#create-tour .hr-new {
-    border: 1px solid #0bbf54;
-  }
-  #create-tour .title-new{
-    position: relative;
-    margin-bottom: 35px;
-    margin-right: 15px;
-    margin-left: 15px;
-    margin-top: 20px;
-  }
-  #create-tour .title-new h3{
-    font-weight: bold;
-      font-size: 27px;
-      position: absolute;
-      background-color: #ffff;
-      top: -15px;
-      padding-right: 20px;
-  }
-  #create-tour .container-createTour{
-    padding: 0rem 2rem;
-  }
-  #create-tour .head--text{
-    background-color: #e90683;
-    text-align: center;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: white;
-  }
-  
+/* 
   .create-img img {
     border-radius: 92px 8px 0px 0px;
+ } */
+ /* f1f5f8 */
+
+ #create-tour {
+    margin-top: -2vh;
+    /* max-width: 1140px; */
+
+    background-color: #fff !important;
  }
- 
+
+ #create-tour .container{
+  max-width: 1400px;
+}
+
   #create-tour .head--content{
-    background-color: #f1f5f8;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    border-radius: 0px 0px 8px 8px;
+    background-color: #fff;
+    box-sizing: border-box;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+    border-radius: 0px  0px 10px 10px;
   }
+
+
+  
+#create-tour .nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 24px;;
+  }
+
+  
+#create-tour .nav-tabs .nav-link {
+  font-weight: 700;
+}
+#create-tour .searchbox-tour__inbound__nav .nav-link {
+  color: #2d4271;
+}
+#create-tour .nav-tabs .nav-link {
+  margin-bottom: -1px;
+  background: 0 0;
+  border: 1px solid transparent;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+#create-tour   .input-search-location{
+    border: 5px solid #ffc709;
+    border-radius: 10px;
+  }
+
+#create-tour   .selection__rendered {
+    display: block;
+  padding-left: 0!important;
+  color: #2d4271!important;
+    font-weight: 700;
+}
+
+#create-tour .create-btn button[type=submit] {
+  background: linear-gradient( 64.4deg,#244c7a 21.33%,#002f65 67.61%);
+  width: 100%;
+  height: 72px;
+  color: #ffc709!important;
+  border-radius: 10px;
+  font-size: 30px;
+  padding: 10px 16px;
+
+  min-width: auto;
+}
+
+#create-tour select.selection__rendered {
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+/* css sellect điểm đi, điểm đến */
+#create-tour .ant-select-selector {
+  border:none!important;
+  padding-left: 0!important;
+}
+#create-tour .ant-select-input > input {
+  color: #2d4271!important;
+  font-weight: 700;
+}
+#create-tour .ant-select-selection-item {
+  padding: 0!important;
+  background: #fff!important;
+  border: none!important;
+}
+
+/* css sellect ngày đi, ngày về */
+#create-tour .ant-picker {
+  border:none;
+  padding-left: 0!important;
+}
+#create-tour .ant-picker-input > input {
+  color: #2d4271!important;
+  font-weight: 700;
+}
+#create-tour .ant-picker-suffix {
+  color: #fff;
+}
+
+/* Tabs css */
+
+#create-tour .container-tabs {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 310px;
+  word-break: break-all;
+}
+#create-tour .container-tab2 {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3vh;
+}
+
+#create-tour .bloc-tabs {
+  display: flex;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+#create-tour .tabs {
+  padding: 15px;
+  text-align: center;
+  width: 50%;
+  background: calc(rgba(128, 128, 128, 0.075) + #f1f1f1);
+  cursor: pointer;
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.274); */
+  box-sizing: content-box;
+  position: relative;
+  outline: none;
+}
+#create-tour .tabs:not(:last-child){
+  border-right: 1px solid white;
+}
+
+#create-tour .active-tabs  {
+  background: white;
+  border-bottom: 1px solid transparent;
+}
+
+#create-tour .active-tabs::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: calc(100% + 2px);
+  height: 5px;
+  background: var(--primary-color);
+}
+
+#create-tour button {
+  border: none;
+  font-size: 20px;
+}
+#create-tour button:focus {
+  outline:none;
+}
+
+#create-tour .content-tabs {
+  flex-grow : 1;
+}
+#create-tour .content-tabs-1 {
+  padding-top: 16px;
+}
+
+#create-tour .content {
+  padding: 24px;
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+#create-tour .content h2 {
+  padding: 0px 0 5px 0px;
+}
+
+#create-tour .content p {
+  width: 100%;
+  height: 100%;
+}
+#create-tour .active-content {
+  display: block;
+}

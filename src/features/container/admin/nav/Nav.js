@@ -438,7 +438,8 @@ export default function Nav() {
             </Menu.Item>
 
             <SubMenu key="sub1" title={state.collapsed === true ? "" : "Quản lý hoá đơn"}
-                    icon={state.collapsed === true ?<span className="fas fa-scroll" ></span> : <span className="fas fa-scroll mr-2"></span>}>
+                    icon={state.collapsed === true ?<span className="fas fa-scroll" ></span> : <span className="fas fa-scroll mr-2"></span>}
+            >
                 <Menu.Item key="21" icon={state.collapsed === true ? <span className="fas fa-check-double"></span> : <span className="fas fa-check-double"></span>}>
                     <Link to={`${match.url}/kiemduyet`}>Kiểm duyệt {counthoadon === 0 ? "" : <Badge status="error" />}</Link>
                 </Menu.Item>
@@ -451,7 +452,8 @@ export default function Nav() {
             </SubMenu>
 
             <SubMenu key="sub2" title={state.collapsed === true ? "" : "Quản lý tour"}
-                    icon={state.collapsed === true ?<span className="fas fa-map-marked-alt" ></span> : <span className="fas fa-map-marked-alt mr-2"></span>}>
+                    icon={state.collapsed === true ?<span className="fas fa-map-marked-alt" ></span> : <span className="fas fa-map-marked-alt mr-2"></span>}
+            >
                 <Menu.Item key="2" icon={state.collapsed === true ? <span className="fas fa-luggage-cart" ></span> : <span className="fas fa-luggage-cart mr-2"></span>}>
                     <Link to={`${match.url}/tour`}>Quản lý tour</Link>
                 </Menu.Item>
@@ -479,7 +481,8 @@ export default function Nav() {
             </SubMenu>
 
             <SubMenu key="sub3" title={state.collapsed === true ? "" : "Quản lý user"}
-                    icon={state.collapsed === true ?<span className="fas fa-user-cog" ></span> : <span className="fas fa-user-cog mr-2"></span>}>
+                    icon={state.collapsed === true ?<span className="fas fa-user-cog" ></span> : <span className="fas fa-user-cog mr-2"></span>}
+            >
                 <Menu.Item key="3" icon={state.collapsed === true ? <span className="fas fa-users" ></span> : <span className="fas fa-users mr-2"></span>}>
                     <Link to={`${match.url}/taikhoan`}>Quản lý tài khoản</Link>
                 </Menu.Item>
@@ -489,19 +492,20 @@ export default function Nav() {
             </SubMenu>
             
             <SubMenu key="sub4" title={state.collapsed === true ? "" : "Quản lý trang chủ"}
-                    icon={state.collapsed === true ?<span className="fas fa-eye" ></span> : <span className="fas fa-eye mr-2"></span>}>
-            <Menu.Item key="9" icon={state.collapsed === true ? <span className="fas fa-comments" ></span> : <span className="fas fa-comments mr-2"></span>}>
-                <Link to={`${match.url}/binhluan`}>Quản lý bình luận</Link>
-            </Menu.Item>
-            <Menu.Item key="17" icon={state.collapsed === true ? <span className="fas fa-book" ></span> : <span className="fas fa-book mr-2"></span>}>
-                <Link to={`${match.url}/camnangdulich`}>Cẩm nang du lịch</Link>
-            </Menu.Item>
-            <Menu.Item key="7" icon={state.collapsed === true ? <span className="fas  fa-share-alt" ></span> : <span className="fas  fa-share-alt mr-2"></span>}>
-                <Link to={`${match.url}/mangxahoi`}>Quản lý mạng xã hội</Link>
-            </Menu.Item>
-            <Menu.Item key="15" icon={state.collapsed === true ? <span className="fas fa-id-card" ></span> : <span className="fas fa-id-card mr-2"></span>}>
-                <Link to={`${match.url}/lienhe`}>Quản lý liên hệ</Link>
-            </Menu.Item>
+                    icon={state.collapsed === true ?<span className="fas fa-eye" ></span> : <span className="fas fa-eye mr-2"></span>}
+            >
+                <Menu.Item key="9" icon={state.collapsed === true ? <span className="fas fa-comments" ></span> : <span className="fas fa-comments mr-2"></span>}>
+                    <Link to={`${match.url}/binhluan`}>Quản lý bình luận</Link>
+                </Menu.Item>
+                <Menu.Item key="17" icon={state.collapsed === true ? <span className="fas fa-book" ></span> : <span className="fas fa-book mr-2"></span>}>
+                    <Link to={`${match.url}/camnangdulich`}>Cẩm nang du lịch</Link>
+                </Menu.Item>
+                <Menu.Item key="7" icon={state.collapsed === true ? <span className="fas  fa-share-alt" ></span> : <span className="fas  fa-share-alt mr-2"></span>}>
+                    <Link to={`${match.url}/mangxahoi`}>Quản lý mạng xã hội</Link>
+                </Menu.Item>
+                <Menu.Item key="15" icon={state.collapsed === true ? <span className="fas fa-id-card" ></span> : <span className="fas fa-id-card mr-2"></span>}>
+                    <Link to={`${match.url}/lienhe`}>Quản lý liên hệ</Link>
+                </Menu.Item>
             </SubMenu>
 
         </Menu>

@@ -68,6 +68,12 @@
 .btn-dt a{
     color: white;
 }
+.btn-cart {
+    bottom: 10% !important;
+}
+.btn-cart i{
+    color: #fff;
+}
 .ant-message{
     z-index: 9999999 !important;
 }

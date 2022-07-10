@@ -13,7 +13,7 @@ export default function Duyettour() {
     const hoadon = [];
     if (hoadoncanhans && infor) {
         for (let i = 0; i < hoadoncanhans.length; i++) {
-            if (hoadoncanhans[i].userId === infor.id && hoadoncanhans[i].agree === 0) {
+            if (hoadoncanhans[i].userId === infor.id && hoadoncanhans[i].agree === 0 && hoadoncanhans[i].kiemduyet === 1) {
                 hoadon.push(hoadoncanhans[i])
             }
         }

@@ -4,10 +4,6 @@ import { Carousel } from "antd";
 import "antd/dist/antd.css";
 import { useSelector } from "react-redux";
 
-import "./accsets/main.css";
-import "./accsets/grid.css";
-// import "../slider/accsets/responsive.css";
-
 function Album(props) {
   const anh = useSelector(state => state.anhs.anh.data);
   var banner = []
@@ -21,32 +17,20 @@ function Album(props) {
   return (
     <div id="album" className="pt-5">
       <div className="heading text-center">
-        <span>Album ảnh</span>
+        {/* <span>Album ảnh</span> */}
         <div className="hr"></div>
         <p>Khám phá thêm nhiều hình ảnh đẹp về các địa điểm trên toàn thế giới</p>
       </div>
       <div className="">
-        <div class="container__growth">
-          <div class="row no-gutters">
-              <div class="col l-3.5">
-                <div class="container__growth1 hide-on-mb-tl"></div>
-              </div>
-              <div class="col l-5">
-                <div class="container__growth-content">
-                <Carousel autoplay effect="fade">
+        <div class="container">
+                <Carousel autoplay arrows effect="fade">
                   {!banner ? '' :
                     banner.map(ok => (
-                      <div className="fit" key={ok.id}>
+                      <div key={ok.id}>
                         <img src={ok.link} alt="" />
                       </div>
                     ))}
                 </Carousel>
-                </div>
-              </div>
-              <div class="col l-3.5">
-                <div class="container__growth2 hide-on-mb-tl"></div>
-              </div>
-          </div>
         </div>
       </div>
     </div >

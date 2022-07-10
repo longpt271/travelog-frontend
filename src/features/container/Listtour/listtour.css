@@ -1,4 +1,6 @@
-
+#list-tour .container{
+  max-width: 1400px;
+}
 #list-tour.content_tour {
   position: absolute;
   color: white;
@@ -25,7 +27,7 @@
 #list-tour .img img {
   transition: 0.5s;
   width: 400px;
-  height: 450px;
+  height: 435px;
 }
 #list-tour a:hover img {
   transform: scale(1.05);
@@ -37,11 +39,7 @@
   font-size: 1.2rem;
 }
 
-/* css footer khi tìm kiếm */
-#list-tour .box-tour-overflow{
-  height: 80vh;
-    overflow: auto;
-}
+
 
 
 @media (max-width:1125px){
@@ -73,3 +71,12 @@
     height: 320px;
   }
 }
+
+/* Tablet & Mobile */
+@media (max-width: 1023px) {}
+/* Tablet */
+@media (min-width:740px) and (max-width: 1023px) {}
+/* Mobile */
+
+@media (min-width:739px) {}
+/* End f8 */

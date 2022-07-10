@@ -99,6 +99,25 @@ function ListMenu(props) {
             }
         }
     }
+    
+  const menuShopingCart = (
+    <Menu>
+        <span className="ml-2">Giỏ hàng:</span>
+        <Menu.Item key="0">
+          <Linkrt to="/shoping-cart">Sản phẩm trong giỏ 1</Linkrt>
+        </Menu.Item>
+        <Menu.Item key="1">
+          <Linkrt to="/shoping-cart">Sản phẩm trong giỏ 2</Linkrt>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Linkrt to="/shoping-cart">Sản phẩm trong giỏ 3</Linkrt>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Linkrt to="/shoping-cart">Xem tất cả</Linkrt>
+        </Menu.Item>
+    </Menu>
+  )
+
     const ss = (
         <Menu>
             <Menu.Item key="0">
@@ -206,11 +225,19 @@ function ListMenu(props) {
                                     <Linkrt className="nav-link" to="/">Trang chủ<span className="sr-only">(current)</span></Linkrt>
                                 </div>
                             </li> */}
-                            <li className="nav-item">
+                            {/* <li className="nav-item">
                                 <div className="border-bot-menu">
                                     <Linkrt className="nav-link" to="/list-tour">Tours</Linkrt>
                                 </div>
-                            </li>
+                            </li> */}
+                            
+                        <li className="nav-item">
+                            <Dropdown overlay={menuShopingCart} trigger={['hover']} placement="bottomRight">
+                            <Linkrt className="nav-link" to="#" >
+                                <i className="fas fa-shopping-cart"></i>
+                            </Linkrt>
+                            </Dropdown>
+                        </li>
                         </ul>
                         <Dropdown overlay={ss} trigger={['click']} >
                             <span className="nav-link" >

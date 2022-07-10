@@ -40,6 +40,11 @@ import CreateTour from "../container/createTour/CreateTour";
 import { thongbaoData } from "../container/admin/Kiemduyet/thongbaoSlice";
 import Thongtin from "../container/trangchu/thongtin/Thongtin";
 
+// Sub menu
+import CoCauToChuc from "../container/detailSubMenu/menuAboutUs/CoCauToChuc";
+import ShopingCart from "../container/detailSubMenu/menuShopingCart/ShopingCart";
+
+
 export default function NestingExample() {
   const dispatch = useDispatch();
   const actionquocgia = async () => { await dispatch(quocgiaData()) }
@@ -138,6 +143,15 @@ export default function NestingExample() {
           <Route path='/create-tour'>
             <CreateTour />
           </Route>
+          
+          <Route path='/shoping-cart'>
+            <ShopingCart />
+          </Route>
+          <Route path="/co-cau-to-chuc">
+            {/* Phải viết hoa chữ cái đầu nhé */}
+            <CoCauToChuc />
+          </Route>
+
           <Route path='/stripe'>
             <Stripe />
           </Route>
